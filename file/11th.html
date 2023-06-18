@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>11th</title>
+    <link rel="icon" href="https://www.svgrepo.com/show/513311/heart.svg">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
+
+<style>
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+*{
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+}
+.main{
+    background-color: black;
+    width: 100%;
+    padding: 1px;
+}
+.month{
+    color: blanchedalmond;
+    text-align: left;
+    text-transform: uppercase;
+    font-size: larger;
+    margin-left: 3em;
+}
+.name{
+    color: blanchedalmond;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: larger;
+}
+.date{
+    color: blanchedalmond;
+    text-align: right;
+    text-transform: uppercase;
+    font-size: larger;
+    margin-right: 3em;
+}
+
+.parent{
+    background-color: #222222;
+    padding: 3em;
+    margin: 0 auto;
+    width: 100%;
+}
+.child{
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(https://images.pexels.com/photos/176851/pexels-photo-176851.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2);
+    background-position: center;
+    background-size: cover;
+    padding: 3em;
+}
+.message{
+    color: white;
+    text-align: left;
+}
+.parent1{
+    background-color: #252525;
+    padding: 3em;
+    margin: 0 auto;
+    width: 100%;
+}
+.child1{
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(https://images.pexels.com/photos/8990/night-trees-milky-way-stars.jpg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-position: center;
+    background-size: cover;
+    padding: 3em;
+}
+.quote{
+    color: white;
+    text-align: center;
+}
+.parent2{
+    background-color: #282828;
+    padding: 3em;
+    margin: 0 auto;
+    width: 100%;
+}
+.child2{
+    background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(https://images.pexels.com/photos/2919587/pexels-photo-2919587.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940);
+    background-position: center;
+    background-size: cover;
+    padding: 3em;
+}
+.about{
+    color: white;
+    text-align: right;
+}
+        .music{
+          font-family: Helvetica, Arial;
+          width: 100%;
+          background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(http://wallpapercave.com/wp/P3EtD4C.jpg);
+          background-position: center;
+          background-size: cover;
+          height: 500px;
+        }
+        
+        #app-cover {
+          position: relative;
+          top: 50%;
+          width: 430px;
+          height: 100px;
+          margin: -4px auto;
+        }
+        
+        #bg-artwork {
+          position: absolute;
+          
+          background-color: black;
+          
+        }
+        
+        #bg-layer {
+          background-color: black;
+        }
+        
+        #player {
+          position: relative;
+          height: 100%;
+          z-index: 3;
+        }
+        
+        #player-track {
+          position: absolute;
+          top: 0;
+          right: 15px;
+          left: 15px;
+          padding: 13px 22px 10px 184px;
+          background-color: #362222;
+          border-radius: 15px 15px 0 0;
+          transition: 0.3s ease top;
+          z-index: 1;
+        }
+        
+        #player-track.active {
+          top: -92px;
+        }
+        
+        #album-name {
+          color: #EDEDED;
+          font-size: 17px;
+          font-weight: bold;
+        }
+        
+        #track-name {
+          color: #acaebd;
+          font-size: 13px;
+          margin: 2px 0 13px 0;
+        }
+        
+        #track-time {
+          height: 12px;
+          margin-bottom: 3px;
+          overflow: hidden;
+        }
+        
+        #current-time {
+          float: left;
+        }
+        
+        #track-length {
+          float: right;
+        }
+        
+        #current-time,
+        #track-length {
+          color: transparent;
+          font-size: 11px;
+          background-color: #362222;
+          border-radius: 10px;
+          transition: 0.3s ease all;
+        }
+        
+        #track-time.active #current-time,
+        #track-time.active #track-length {
+          color: #F05454;
+          background-color: transparent;
+        }
+        
+        #s-area,
+        #seek-bar {
+          position: relative;
+          height: 4px;
+          border-radius: 4px;
+        }
+        
+        #s-area {
+          background-color: #ffe8ee;
+          cursor: pointer;
+        }
+        
+        #ins-time {
+          position: absolute;
+          top: -29px;
+          color: #fff;
+          font-size: 12px;
+          white-space: pre;
+          padding: 5px 6px;
+          border-radius: 4px;
+          display: none;
+        }
+        
+        #s-hover {
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          opacity: 0.2;
+          z-index: 2;
+        }
+        
+        #ins-time,
+        #s-hover {
+          background-color: #3b3d50;
+        }
+        
+        #seek-bar {
+          content: "";
+          position: absolute;
+          top: 0;
+          bottom: 0;
+          left: 0;
+          width: 0;
+          background-color:  black;
+          transition: 0.2s ease width;
+          z-index: 1;
+        }
+        
+        #player-content { 
+          position: relative;
+          height: 100%;
+          background-color: #2B2B2B;
+          box-shadow: 0 30px 80px black;
+          border-radius: 15px;
+          z-index: 2;
+        }
+        
+        #album-art {
+          position: absolute;
+          top: -40px;
+          width: 115px;
+          height: 115px;
+          margin-left: 40px;
+          transform: rotateZ(0);
+          transition: 0.3s ease all;
+          box-shadow: 0 0 0 10px #000;
+          border-radius: 50%;
+          overflow: hidden;
+        }
+        
+        #album-art.active {
+          top: -60px;
+          box-shadow: 0 0 0 4px #000, 0 30px 50px -15px #000;
+        }
+        
+        #album-art:before {
+          content: "";
+          position: absolute;
+          top: 50%;
+          right: 0;
+          left: 0;
+          width: 20px;
+          height: 20px;
+          margin: -10px auto 0 auto;
+          background-color: #222831;
+          border-radius: 50%;
+          box-shadow: inset 0 0 0 2px #000;
+          z-index: 2;
+        }
+        
+        #album-art img {
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          opacity: 0;
+          z-index: -1;
+        }
+        
+        #album-art img.active {
+          opacity: 1;
+          z-index: 1;
+        }
+        
+        #album-art.active img.active {
+          z-index: 1;
+          -webkit-animation: rotateAlbumArt 3s linear 0s infinite forwards;
+                  animation: rotateAlbumArt 3s linear 0s infinite forwards;
+        }
+        
+        @-webkit-keyframes rotateAlbumArt {
+          0% {
+            transform: rotateZ(0);
+          }
+          100% {
+            transform: rotateZ(360deg);
+          }
+        }
+        
+        @keyframes rotateAlbumArt {
+          0% {
+            transform: rotateZ(0);
+          }
+          100% {
+            transform: rotateZ(360deg);
+          }
+        }
+        
+        #buffer-box {
+          position: absolute;
+          top: 50%;
+          right: 0;
+          left: 0;
+          height: 13px;
+          color: #1f1f1f;
+          font-size: 13px;
+          font-family: Helvetica;
+          text-align: center;
+          font-weight: bold;
+          line-height: 1;
+          padding: 6px;
+          margin: -12px auto 0 auto;
+          background-color: rgba(0, 0, 0, 0);
+          opacity: 0;
+          z-index: 2;
+        }
+        
+        #album-art img,
+        #buffer-box {
+          transition: 0.1s linear all;
+        }
+        
+        #album-art.buffering img {
+          opacity: 0.25;
+        }
+        
+        #album-art.buffering img.active {
+          opacity: 0.8;
+          filter: blur(2px);
+          -webkit-filter: blur(2px);
+        }
+        
+        #album-art.buffering #buffer-box {
+          opacity: 1;
+        }
+        
+        #player-controls {
+          width: 250px;
+          height: 100%;
+          margin: 0 5px 0 141px;
+          float: right;
+          overflow: hidden;
+        }
+        
+        .control {
+          width: 33.333%;
+          float: left;
+          padding: 12px 0;
+        }
+        
+        .button {
+          width: 75px;
+          height: 75px;
+          padding: 25px;
+          background-color: #444444;
+          border-radius: 6px;
+          cursor: pointer;
+        }
+        
+        .button i {
+          display: block;
+          color: #d6dee7;
+          font-size: 26px;
+          text-align: center;
+          line-height: 1;
+        }
+        
+        .button,
+        .button i {
+          transition: 0.2s ease all;
+        }
+        
+        .button:hover {
+          background-color: #423F3E;
+        }
+        
+        .button:hover i {
+          color: #fff;
+        }
+</style>
+
+</head>
+<body>
+    <div class="main">
+        <p class="month">11th Month of Friendship</p>
+        <p class="name">Jayden & Quivress</p>
+        <p class="date">April 12, 2022</p>
+    </div>
+    <div class="parent">
+        <div class="child">
+            <div class="message">
+                <h1>Message</h1>
+                <p>
+                    Happy 11th month of friendship to you and me. This is the most important relationship that I have at present, <br><br>
+                    and I want to make it last long, more than we can count. I just want you to know that I love you so much, <br><br>
+                    I will never get tired of saying that till the very end. Always remember that I’ll be here for you, <br><br> 
+                    even if it’s just an online presence because we are not yet able to see each other for now. <br><br> 
+                    Our love for each other is undeniably strong, that’s the reason why this bond will never fall apart.
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="parent1">
+        <div class="child1">
+            <div class="quote">
+                <h1>Quote</h1>
+                <p>
+                    “Hard work is worthless for those that don’t believe in themselves.” – Naruto Uzumaki <br><br>
+                    “It is only through the eyes of others that our lives have any meaning.” – Haku <br><br>
+                    “A place where someone still thinks about you is a place you can call home.” – Jiraiya <br><br>
+                    “It’s human nature not to realize the true value of something, unless they lose it.” – Orochimaru <br><br>
+                    “People’s lives don’t end when they die. It ends when they lose faith.” – Itachi Uchiha <br><br>
+                    “Sometimes you must hurt in order to know, fall in order to grow, lose in order to gain because life’s greatest lessons <br><br> are learned through pain.” – Pain
+                  </p>
+            </div>
+        </div>
+    </div>
+    <div class="parent2">
+        <div class="child2">
+            <div class="about">
+                <h1>About</h1>
+                <p>
+                    This content is my way of showing my deep appreciation for you. I never planned on doing this before, <br><br> 
+                    I just started thinking about it when we didn't have the time to talk last Thursday. <br><br> 
+                    I hope you like this simple content that I created just for you, to celebrate this 11th month of our friendship.
+                  </p>
+            </div>
+        </div>
+    </div>
+
+    <div class="music" id="songs">
+        <div id="app-cover">
+            <div id="bg-artwork"></div>
+            <div id="bg-layer"></div>
+            <div id="player">
+              <div id="player-track">
+                <div id="album-name"></div>
+                <div id="track-name"></div>
+                <div id="track-time">
+                  <div id="current-time"></div>
+                  <div id="track-length"></div>
+                </div>
+                <div id="s-area">
+                  <div id="ins-time"></div>
+                  <div id="s-hover"></div>
+                  <div id="seek-bar"></div>
+                </div>
+              </div>
+              <div id="player-content">
+                <div id="album-art">
+                  <img src="https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/1.jpg" class="active" id="_1">
+                  <img src="https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/2.jpg" id="_2">
+                  <img src="https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/3.jpg" id="_3">
+                  <img src="https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/4.jpg" id="_4">
+                  <img src="https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/5.jpg" id="_5">
+                  <div id="buffer-box">Buffering ...</div>
+                </div>
+                <div id="player-controls">
+                  <div class="control">
+                    <div class="button" id="play-previous">
+                      <i class="fas fa-backward"></i>
+                    </div>
+                  </div>
+                  <div class="control">
+                    <div class="button" id="play-pause-button">
+                      <i class="fas fa-play"></i>
+                    </div>
+                  </div>
+                  <div class="control">
+                    <div class="button" id="play-next">
+                      <i class="fas fa-forward"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+    </div>
+
+    <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+      <script id="rendered-js" >
+$(function () {
+  var playerTrack = $("#player-track"),
+  bgArtwork = $("#bg-artwork"),
+  bgArtworkUrl,
+  albumName = $("#album-name"),
+  trackName = $("#track-name"),
+  albumArt = $("#album-art"),
+  sArea = $("#s-area"),
+  seekBar = $("#seek-bar"),
+  trackTime = $("#track-time"),
+  insTime = $("#ins-time"),
+  sHover = $("#s-hover"),
+  playPauseButton = $("#play-pause-button"),
+  i = playPauseButton.find("i"),
+  tProgress = $("#current-time"),
+  tTime = $("#track-length"),
+  seekT,
+  seekLoc,
+  seekBarPos,
+  cM,
+  ctMinutes,
+  ctSeconds,
+  curMinutes,
+  curSeconds,
+  durMinutes,
+  durSeconds,
+  playProgress,
+  bTime,
+  nTime = 0,
+  buffInterval = null,
+  tFlag = false,
+  albums = [
+  "A Twist In My Story",
+  "Awake",
+  "Fall For You",
+  "Vulnerable",
+  "Your Call"],
+
+  trackNames = [
+  "- Secondhand Serenade",
+  "- Secondhand Serenade",
+  "- Secondhand Serenade",
+  "- Secondhand Serenade",
+  "- Secondhand Serenade"],
+
+  albumArtworks = ["_1", "_2", "_3", "_4", "_5"],
+  trackUrl = [
+  "https://archive.org/download/secondhand-serenade-a-twist-in-my-story_202204.mp3/Secondhand%20Serenade%20-%20A%20Twist%20In%20My%20Story.mp3",
+  "https://archive.org/download/secondhand-serenade-a-twist-in-my-story_202204.mp3/Secondhand%20Serenade%20-%20Awake.mp3",
+  "https://archive.org/download/secondhand-serenade-a-twist-in-my-story_202204.mp3/Secondhand%20Serenade%20-%20Fall%20For%20You.mp3",
+  "https://archive.org/download/secondhand-serenade-a-twist-in-my-story_202204.mp3/Secondhand%20Serenade%20-%20Vulnerable.mp3",
+  "https://archive.org/download/secondhand-serenade-a-twist-in-my-story_202204.mp3/Secondhand%20Serenade%20-%20Your%20Call.mp3"],
+
+  playPreviousTrackButton = $("#play-previous"),
+  playNextTrackButton = $("#play-next"),
+  currIndex = -1;
+
+  function playPause() {
+    setTimeout(function () {
+      if (audio.paused) {
+        playerTrack.addClass("active");
+        albumArt.addClass("active");
+        checkBuffering();
+        i.attr("class", "fas fa-pause");
+        audio.play();
+      } else {
+        playerTrack.removeClass("active");
+        albumArt.removeClass("active");
+        clearInterval(buffInterval);
+        albumArt.removeClass("buffering");
+        i.attr("class", "fas fa-play");
+        audio.pause();
+      }
+    }, 300);
+  }
+
+  function showHover(event) {
+    seekBarPos = sArea.offset();
+    seekT = event.clientX - seekBarPos.left;
+    seekLoc = audio.duration * (seekT / sArea.outerWidth());
+
+    sHover.width(seekT);
+
+    cM = seekLoc / 60;
+
+    ctMinutes = Math.floor(cM);
+    ctSeconds = Math.floor(seekLoc - ctMinutes * 60);
+
+    if (ctMinutes < 0 || ctSeconds < 0) return;
+
+    if (ctMinutes < 0 || ctSeconds < 0) return;
+
+    if (ctMinutes < 10) ctMinutes = "0" + ctMinutes;
+    if (ctSeconds < 10) ctSeconds = "0" + ctSeconds;
+
+    if (isNaN(ctMinutes) || isNaN(ctSeconds)) insTime.text("--:--");else
+    insTime.text(ctMinutes + ":" + ctSeconds);
+
+    insTime.css({ left: seekT, "margin-left": "-21px" }).fadeIn(0);
+  }
+
+  function hideHover() {
+    sHover.width(0);
+    insTime.text("00:00").css({ left: "0px", "margin-left": "0px" }).fadeOut(0);
+  }
+
+  function playFromClickedPos() {
+    audio.currentTime = seekLoc;
+    seekBar.width(seekT);
+    hideHover();
+  }
+
+  function updateCurrTime() {
+    nTime = new Date();
+    nTime = nTime.getTime();
+
+    if (!tFlag) {
+      tFlag = true;
+      trackTime.addClass("active");
+    }
+
+    curMinutes = Math.floor(audio.currentTime / 60);
+    curSeconds = Math.floor(audio.currentTime - curMinutes * 60);
+
+    durMinutes = Math.floor(audio.duration / 60);
+    durSeconds = Math.floor(audio.duration - durMinutes * 60);
+
+    playProgress = audio.currentTime / audio.duration * 100;
+
+    if (curMinutes < 10) curMinutes = "0" + curMinutes;
+    if (curSeconds < 10) curSeconds = "0" + curSeconds;
+
+    if (durMinutes < 10) durMinutes = "0" + durMinutes;
+    if (durSeconds < 10) durSeconds = "0" + durSeconds;
+
+    if (isNaN(curMinutes) || isNaN(curSeconds)) tProgress.text("00:00");else
+    tProgress.text(curMinutes + ":" + curSeconds);
+
+    if (isNaN(durMinutes) || isNaN(durSeconds)) tTime.text("00:00");else
+    tTime.text(durMinutes + ":" + durSeconds);
+
+    if (
+    isNaN(curMinutes) ||
+    isNaN(curSeconds) ||
+    isNaN(durMinutes) ||
+    isNaN(durSeconds))
+
+    trackTime.removeClass("active");else
+    trackTime.addClass("active");
+
+    seekBar.width(playProgress + "%");
+
+    if (playProgress == 100) {
+      i.attr("class", "fa fa-play");
+      seekBar.width(0);
+      tProgress.text("00:00");
+      albumArt.removeClass("buffering").removeClass("active");
+      clearInterval(buffInterval);
+    }
+  }
+
+  function checkBuffering() {
+    clearInterval(buffInterval);
+    buffInterval = setInterval(function () {
+      if (nTime == 0 || bTime - nTime > 1000) albumArt.addClass("buffering");else
+      albumArt.removeClass("buffering");
+
+      bTime = new Date();
+      bTime = bTime.getTime();
+    }, 100);
+  }
+
+  function selectTrack(flag) {
+    if (flag == 0 || flag == 1) ++currIndex;else
+    --currIndex;
+
+    if (currIndex > -1 && currIndex < albumArtworks.length) {
+      if (flag == 0) i.attr("class", "fa fa-play");else
+      {
+        albumArt.removeClass("buffering");
+        i.attr("class", "fa fa-pause");
+      }
+
+      seekBar.width(0);
+      trackTime.removeClass("active");
+      tProgress.text("00:00");
+      tTime.text("00:00");
+
+      currAlbum = albums[currIndex];
+      currTrackName = trackNames[currIndex];
+      currArtwork = albumArtworks[currIndex];
+
+      audio.src = trackUrl[currIndex];
+
+      nTime = 0;
+      bTime = new Date();
+      bTime = bTime.getTime();
+
+      if (flag != 0) {
+        audio.play();
+        playerTrack.addClass("active");
+        albumArt.addClass("active");
+
+        clearInterval(buffInterval);
+        checkBuffering();
+      }
+
+      albumName.text(currAlbum);
+      trackName.text(currTrackName);
+      albumArt.find("img.active").removeClass("active");
+      $("#" + currArtwork).addClass("active");
+
+      bgArtworkUrl = $("#" + currArtwork).attr("src");
+
+      bgArtwork.css({ "background-image": "url(" + bgArtworkUrl + ")" });
+    } else {
+      if (flag == 0 || flag == 1) --currIndex;else
+      ++currIndex;
+    }
+  }
+
+  function initPlayer() {
+    audio = new Audio();
+
+    selectTrack(0);
+
+    audio.loop = false;
+
+    playPauseButton.on("click", playPause);
+
+    sArea.mousemove(function (event) {
+      showHover(event);
+    });
+
+    sArea.mouseout(hideHover);
+
+    sArea.on("click", playFromClickedPos);
+
+    $(audio).on("timeupdate", updateCurrTime);
+
+    playPreviousTrackButton.on("click", function () {
+      selectTrack(-1);
+    });
+    playNextTrackButton.on("click", function () {
+      selectTrack(1);
+    });
+  }
+
+  initPlayer();
+});
+//# sourceURL=pen.js
+    </script>
+</body>
+</html>
