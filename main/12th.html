@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>12th</title>
+    <link rel="icon" href="https://www.svgrepo.com/show/513311/heart.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;900&display=swap" rel="stylesheet">
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.3.1/css/all.css'>
+</head>
+<style>
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.3rem;
+    background-color: black;
+}
+
+img {
+    max-width: 100%;
+}
+
+h1 {
+    font-size: 3rem;
+    margin-top: 0;
+}
+
+.section-title {
+    color: #A59678;
+}
+
+.btn {
+    display: inline-block;
+    text-decoration: none;
+    text-transform: uppercase; 
+    color: #23424A;
+    font-weight: 900;
+    background-color: #38CFD9;
+    padding: .75em 2em;
+    border-radius: 100px;
+}
+
+.btn:hover,
+.btn:focus {
+    opacity: .75; 
+}
+
+.container {
+    width: 80%;
+    max-width: 1100px;
+    margin: 0 auto;
+    /* added for nav-toggle positioning */
+    position: relative;
+}
+
+.mp3__player {
+    max-width: 100%;
+}
+
+header {
+    background: #2E323F;
+    padding: 1em 0;
+    text-align: center;
+}
+
+.nav {
+    width: 100%;
+}
+
+.nav-toggle {
+    cursor: pointer;
+    border: 0;
+    width: 3em;
+    height: 3em;
+    padding: 0em;
+    border-radius: 50%;
+    background: #072A2D;
+    color: white;
+    transition: opacity 250ms ease;
+    
+    position: absolute;
+    left: 0;
+}
+
+.nav-toggle:focus,
+.nav-toggle:hover {
+    opacity: .75;
+}
+
+.hamburger {
+    width: 50%;
+    position: relative;
+}
+
+.hamburger,
+.hamburger::before,
+.hamburger::after {
+    display: block;
+    margin: 0 auto;
+    height: 3px;
+    background: white;
+}
+
+.hamburger::before,
+.hamburger::after {
+    content: '';
+    width: 100%;
+}
+
+.hamburger::before {
+    transform: translateY(-6px);
+}
+
+.hamburger::after {
+    transform: translateY(3px);
+}
+
+/* made changes here from video
+   to make it more accessible.
+   
+   Works the same :) */
+.nav {
+    visibility: hidden;
+    height: 0;
+    position: absolute;
+    font-size: 1rem;
+}
+
+.nav--visible {
+    visibility: visible;
+    height: auto;
+    position: relative;
+} 
+
+.nav__list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.nav__list--primary {
+    margin-bottom: 2em;
+}
+
+.nav__item {
+    margin-top: .75em;
+}
+
+.nav__link {
+    color: #fff;
+    text-transform: uppercase;
+    text-decoration: none;
+}
+
+.nav__link--button {
+    padding: .25em .75em;
+    background: #A59678;
+    color: #23424A;
+    border-radius: 100px;
+}
+
+.nav__link:hover,
+.nav__link:focus {
+    opacity: .65;
+}
+
+.logo {
+    height: 30px;
+    width: 220px;
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    color: #A59678;
+}
+
+a {
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: bold;
+    color: #fff;
+}
+
+.anew {
+    color: #A59678;
+}
+
+.hero {
+    padding: 50px 0;
+    background-color: #3B4050;
+    color: #FFF;
+}
+
+.hero__img {
+    margin-top: 2em;
+}
+
+
+.hero p {
+    margin-bottom: 3em;
+}
+
+.main {
+    margin-top: 3em;
+    background-color: black;
+    color: #fff;
+}
+
+
+.sidebar {
+    padding: 1em;
+    text-align: center;
+    color: #fff;
+    background-color: #3B4050;
+}
+
+.sidebar-title {
+  color: #A59678;
+}
+
+/* Mp3 design */
+
+.mp3-container {
+  background: linear-gradient(to top, rgba(0,0,0,0.5)50%, rgba(0,0,0,0.5)50%), url(https://media.istockphoto.com/photos/multicolored-abstract-background-picture-id879172360?k=20&m=879172360&s=612x612&w=0&h=gSZg5Zxfa1kqcjvNEwQ3vacaCGTgNTriYaItsANyRbk=);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 500px;
+  width: 100%;
+  padding: 0;
+}
+/* .child {
+    height: 50%;
+    width: 50%;
+    margin: 0 auto;
+    top: 50%;
+    position: relative;
+    transform: translateY(-50%);
+} */
+#app-cover{
+    background-color: #000;
+    margin: 0 auto;
+    position: relative;
+    max-width: 300px;
+    height: 100px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 10px;
+}
+/* p{
+    color: aliceblue;
+    margin: 0 auto;
+    width: 40px;
+    top: 40%;
+    position: relative;
+    text-align: center;
+
+    border: 2px solid red;
+} */
+#bg-artwork{
+    position: absolute;
+    
+    background-color: black;
+}
+#bg-layer {
+    background-color: black;
+  }
+  
+  #player {
+    position: relative;
+    height: 100%;
+    z-index: 3;
+  }
+  
+  #player-track {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    left: 10px;
+    padding: 13px 22px 10px;
+    max-width: 1235px;
+    background-color: #362222;
+    border-radius: 15px 15px 0 0;
+    transition: 0.3s ease top;
+    z-index: 1;
+  }
+  
+  #player-track.active {
+    top: -92px;
+  }
+  
+  #album-name {
+    color: #EDEDED;
+    font-size: 17px;
+    font-weight: bold;
+  }
+  
+  #track-name {
+    color: #acaebd;
+    font-size: 13px;
+    margin: 2px 0 13px 0;
+  }
+  
+  #track-time {
+    height: 12px;
+    margin-bottom: 3px;
+    overflow: hidden;
+  }
+  
+  #current-time {
+    float: left;
+  }
+  
+  #track-length {
+    float: right;
+  }
+  
+  #current-time,
+  #track-length {
+    color: transparent;
+    font-size: 11px;
+    background-color: #362222;
+    border-radius: 10px;
+    transition: 0.3s ease all;
+  }
+  
+  #track-time.active #current-time,
+  #track-time.active #track-length {
+    color: #F05454;
+    background-color: transparent;
+  }
+  
+  #s-area,
+  #seek-bar {
+    position: relative;
+    height: 4px;
+    border-radius: 4px;
+  }
+  
+  #s-area {
+    background-color: #ffe8ee;
+    cursor: pointer;
+  }
+  
+  #ins-time {
+    position: absolute;
+    top: -29px;
+    color: #fff;
+    font-size: 12px;
+    white-space: pre;
+    padding: 5px 6px;
+    border-radius: 4px;
+    display: none;
+  }
+  
+  #s-hover {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    opacity: 0.2;
+    z-index: 2;
+  }
+  
+  #ins-time,
+  #s-hover {
+    background-color: #3b3d50;
+  }
+  
+  #seek-bar {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    background-color:  black;
+    transition: 0.2s ease width;
+    z-index: 1;
+  }
+  
+  #player-content { 
+    position: relative;
+    height: 100%;
+    max-width: 300px;
+    background-color: #000;
+    box-shadow: 0 30px 80px #000;
+    border-radius: 20px;
+    z-index: 2;
+  }
+  
+  #album-art {
+    position: absolute;
+    margin-top: 15px;
+    margin-left: 15px;
+    width: 70px;
+    height: 70px;
+    transform: rotateZ(0);
+    transition: 0.3s ease all;
+    box-shadow: 0 0 0 5px black;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+  
+  #album-art:before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    margin: -10px auto 0 auto;
+    background-color: #222831;
+    border-radius: 50%;
+    box-shadow: inset 0 0 0 2px #000;
+    z-index: 2;
+  }
+  
+  #album-art img {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    z-index: -1;
+  }
+  
+  #album-art img.active {
+    opacity: 1;
+    z-index: 1;
+  }
+  
+  #album-art.active img.active {
+    z-index: 1;
+    -webkit-animation: rotateAlbumArt 3s linear 0s infinite forwards;
+            animation: rotateAlbumArt 3s linear 0s infinite forwards;
+  }
+  
+  @-webkit-keyframes rotateAlbumArt {
+    0% {
+      transform: rotateZ(0);
+    }
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
+  
+  @keyframes rotateAlbumArt {
+    0% {
+      transform: rotateZ(0);
+    }
+    100% {
+      transform: rotateZ(360deg);
+    }
+  }
+  
+  #buffer-box {
+    position: absolute;
+    top: 50%;
+    right: 0;
+    left: 0;
+    height: 13px;
+    color: #1f1f1f;
+    font-size: 13px;
+    font-family: Helvetica;
+    text-align: center;
+    font-weight: bold;
+    line-height: 1;
+    padding: 6px;
+    margin: -12px auto 0 auto;
+    background-color: rgba(0, 0, 0, 0);
+    opacity: 0;
+    z-index: 2;
+  }
+  
+  #album-art img,
+  #buffer-box {
+    transition: 0.1s linear all;
+  }
+  
+  #album-art.buffering img {
+    opacity: 0.25;
+  }
+  
+  #album-art.buffering img.active {
+    opacity: 0.8;
+    -webkit-filter: blur(2px);
+    filter: blur(2px);
+  }
+  
+  #album-art.buffering #buffer-box {
+    opacity: 1;
+  }
+  
+  #player-controls {
+    width: 250px;
+    height: 100%;
+    margin-right: -45px;
+    float: right;
+  }
+  
+  .control {
+    width: 20%;
+    float: left;
+    padding-top: 20px;
+    margin-right: 15px;
+  }
+  
+  .button {
+    width: 60px;
+    height: 60px;
+    padding: 1px;
+    background-color: #444444;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  
+  .button i {
+    display: inline-block;
+    color: #d6dee7;
+    font-size: 26px;
+    text-align: center;
+    line-height: 2.5;
+    margin-left: 18px;
+  }
+  
+  .button,
+  .button i {
+    transition: 0.2s ease all;
+  }
+  
+  .button:hover {
+    background-color: #423F3E;
+  }
+  
+  .button:hover i {
+    color: #fff;
+  }
+
+@media (min-width: 810px) {
+
+    .nav-toggle {
+        display: none;
+    }
+
+    .nav {
+        visibility: visible;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        height: auto;
+        position: relative;
+    }
+
+    .nav__list {
+        display: flex;
+        margin: 0;
+    }
+
+    .nav__list--primary {
+        margin: 0 auto;
+    }
+
+    .nav__item {
+        margin: 0 auto;
+    }
+
+    .nav__link__name {
+      margin-right: 100px;
+      font-size:larger;
+    }
+
+    .row {
+        display: flex;
+        justify-content: space-between;
+
+    }
+
+    .hero__text {
+        width: 62%;
+    }
+    
+    .hero__img {
+        width: 32%;
+        align-self: flex-start;
+        margin: 0;
+    }
+    
+    .primary-content {
+        width: 62%;
+    }
+
+    .sidebar {
+        width: 32%;
+    }
+
+    .sidebar-title {
+      color: #A59678;
+    }
+
+    .logo {
+        width: 315px;
+    }
+}
+
+@media (max-width: 390px) {
+      #album-art {
+          display: none;
+      }
+
+      #app-cover {
+          max-width: 218px;
+      }
+
+      .nav-toggle {
+          display: none;
+      }
+      
+  } 
+</style>
+<body>
+    <header> 
+        <div class="container row">
+            <button class="nav-toggle" aria-label="open navigation">
+                <span class="hamburger"></span>
+            </button>
+            <a class="logo" href="#">
+                1st Year Of Friendship
+            </a>
+            <nav class="nav">
+                <ul class="nav__list nav__list--primary">
+                    <!-- <li class="nav__item"><a href="#" class="nav__link">Home</a></li> -->
+                    <li class="nav__item"><a href="#" class="nav__link__name">Jayden Thompson & Quivress Xi</a></li>
+                    <!-- <li class="nav__item"><a href="#" class="nav__link">Contact</a></li> -->
+                </ul>
+                <ul class="nav__list nav__list--secondary">
+                    <!-- <li class="nav__item"><a href="#" class="nav__link">Sign In</a></li> -->
+                    <li class="nav__item"><a href="#music" class="nav__link nav__link--button">Play Music</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container row">
+            <div class="hero__text">
+                <h1>Love is what <span class="anew">makes the ride worthwhile.</span></h1>
+                <p>There are so many ways to express my love, and I plan to show you just how much love I have for you for the rest of my life. I hope that my actions let you know the extent of my affection, adoration, and commitment to you.</p>
+                <!-- <a href="#" class="btn">I want to learn</a> -->
+            </div>
+            <img src="https://cdn.unenvironment.org/2022-03/field-ge4d2466da_1920.jpg" alt="UX design sketches" class="hero__img">
+        </div>
+    </section> 
+
+    <main class="main container row">
+            <section class="primary-content">
+                <h2 class="section-title">Deep Affection</h2>
+                <p>Happy 1st year of friendship to you and me. It’s finally here, the day we’ve waited for so long. It’s been one year already since we started talking to each other. I never thought that we could reach this far, I’ve never imagined that I could spend a year with you.</p>
+                <p>Although it isn’t that surprising because from the moment I interacted with you, I felt something different. My feelings for you suddenly grows as time passed by, it’s what we call love. Our development is already under the roof, we have improved so much, we learned from each other and from our past mistakes.</p>
+                <p>Just like what happened on the last day, we argued again. But I’d say that it’s healthy because we can’t develop our feelings for each other if we don’t learn how to deal with the mistakes we’ve made. No matter what happens, we will continue to move forward, and we should face every problem that may occur in our path.</p>
+                <p>Also, I apologize for making you wait. A lot of things happened here, and my mind can’t think straight, but when I talk to you, everything changes. But then again, I must stand up for myself and be strong enough to face my problems. Always remember that I love you so much.</p>
+            </section>
+            <aside class="sidebar">
+                <h2 class="sidebar-title">Trust</h2>
+                <p>One of the most important parts of a relationship is to trust one another completely. You must be able to trust that they won’t stray, and you trust them with your feelings.</p>
+
+                <h2 class="sidebar-title">Vulnerability</h2>
+                <p>Opening to your partner without fear of judgment is amazing. They get to know you better and it can strengthen your relationship. If you don’t allow vulnerability, your relationship will suffer.</p>
+
+                <h2 class="sidebar-title">Respect</h2>
+                <p>When you respect and love one another, you’ll have a beautiful relationship. This foundation of trust and security is essential and will lead to wonderful things.</p>
+            </aside>
+    </main>
+
+    <div class="mp3-container" id="music">
+        <div id="app-cover">
+            <div id="bg-artwork"></div>
+                <div id="bg-layer"></div>
+                <div id="player">
+                  <div id="player-track">
+                    <div id="album-name"></div>
+                    <div id="track-name"></div>
+                    <div id="track-time">
+                      <div id="current-time"></div>
+                      <div id="track-length"></div>
+                    </div>
+                    <div id="s-area">
+                      <div id="ins-time"></div>
+                      <div id="s-hover"></div>
+                      <div id="seek-bar"></div>
+                    </div>
+                  </div>
+                  <div id="player-content">
+                    <div id="album-art">
+                      <img src="https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/1.jpg" class="active" id="_1">
+                      <img src="https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/2.jpg" id="_2">
+                      <img src="https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/3.jpg" id="_3">
+                      <img src="https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/4.jpg" id="_4">
+                      <img src="https://raw.githubusercontent.com/muhammederdem/mini-player/master/img/5.jpg" id="_5">
+                      <img src="https://media.istockphoto.com/photos/background-image-picture-id153697814?k=20&m=153697814&s=612x612&w=0&h=GrdXIbT7IGEiWO24qWS_kytqBGZ_Fn-8ibB61gmR93o=" id="_6">
+                      <img src="https://media.istockphoto.com/photos/marble-colorful-neon-coral-pink-navy-blue-ultra-violet-purple-marbled-picture-id1125791172?k=20&m=1125791172&s=612x612&w=0&h=O3TOLYvl1XHhZBki7oxw8AoEoHJraC_fniWdjAP3_QY=" id="_7">
+                      <img src="https://media.istockphoto.com/photos/colorful-abstract-paint-splashing-on-audio-speaker-isolated-on-black-picture-id1138081485?k=20&m=1138081485&s=612x612&w=0&h=IV4xjZVqxVHlu4IOI4Zan8NSmmS63ocK3MzunDaj2Vc=" id="_8">
+                      <img src="https://media.istockphoto.com/photos/abstract-marble-colorful-texture-black-background-ebru-marbled-effect-picture-id1126470937?k=20&m=1126470937&s=612x612&w=0&h=xdvXxx2GCZq7WqD6Ayc0gU2Kz7_J7rc26OdQNR6C28E=" id="_9">
+                      <img src="https://media.istockphoto.com/photos/marble-blue-ultra-violet-black-background-abstract-neon-purple-wave-picture-id1152407556?k=20&m=1152407556&s=612x612&w=0&h=5_mXKu3O39cr_2KAbr2U2-4TzeFkRztEZJh6PAjfk0E=" id="_10">
+                      <div id="buffer-box">Buffering ...</div>
+                    </div>
+                    <div id="player-controls">
+                      <div class="control">
+                        <div class="button" id="play-previous">
+                          <i class="fas fa-backward"></i>
+                        </div>
+                      </div>
+                      <div class="control">
+                        <div class="button" id="play-pause-button">
+                          <i class="fas fa-play"></i>
+                        </div>
+                      </div>
+                      <div class="control">
+                        <div class="button" id="play-next">
+                          <i class="fas fa-forward"></i>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+        </div>
+    </div>
+
+    <script>
+
+        // Nav-Toggle
+
+        const navToggle = document.querySelector('.nav-toggle');
+const nav = document.querySelector('.nav');
+
+
+navToggle.addEventListener('click', () => {
+    nav.classList.toggle('nav--visible');
+})
+
+    </script>
+
+<script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-1b93190375e9ccc259df3a57c1abc0e64599724ae30d7ea4c6877eb615f89387.js"></script>
+
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+    <script id="rendered-js" >
+$(function () {
+var playerTrack = $("#player-track"),
+bgArtwork = $("#bg-artwork"),
+bgArtworkUrl,
+albumName = $("#album-name"),
+trackName = $("#track-name"),
+albumArt = $("#album-art"),
+sArea = $("#s-area"),
+seekBar = $("#seek-bar"),
+trackTime = $("#track-time"),
+insTime = $("#ins-time"),
+sHover = $("#s-hover"),
+playPauseButton = $("#play-pause-button"),
+i = playPauseButton.find("i"),
+tProgress = $("#current-time"),
+tTime = $("#track-length"),
+seekT,
+seekLoc,
+seekBarPos,
+cM,
+ctMinutes,
+ctSeconds,
+curMinutes,
+curSeconds,
+durMinutes,
+durSeconds,
+playProgress,
+bTime,
+nTime = 0,
+buffInterval = null,
+tFlag = false,
+albums = [
+"Scene One",
+"Scene Two",
+"Scene Three",
+"Scene Four",
+"Scene Five",
+"A Twist In My Story",
+"Awake",
+"Fall For You",
+"Vulnerable",
+"Your Call"],
+
+trackNames = [
+"- Sleeping with Sirens",
+"- Sleeping with Sirens",
+"- Sleeping with Sirens",
+"- Sleeping with Sirens",
+"- Sleeping with Sirens",
+"- Secondhand Serenade",
+"- Secondhand Serenade",
+"- Secondhand Serenade",
+"- Secondhand Serenade",
+"- Secondhand Serenade"],
+
+albumArtworks = ["_1", "_2", "_3", "_4", "_5", "_6", "_7", "_8", "_9", "_10"],
+trackUrl = [
+"https://github.com/StygianEx/monthlyIndex/raw/main/music/12th/Sleeping%20With%20Sirens%20-%20James%20Dean%20_%20Audrey%20Hepburn%20(Acoustic%20version)%20(320K).mp3",
+"https://github.com/StygianEx/monthlyIndex/raw/main/music/12th/Sleeping%20With%20Sirens%20-%20Roger%20Rabbit%20(Official%20Music%20Video)%20(320K).mp3",
+"https://github.com/StygianEx/monthlyIndex/raw/main/music/12th/Sleeping%20With%20Sirens%20-%20Stomach%20Tied%20In%20Knots%20(Acoustic%20version)%20(320K).mp3",
+"https://github.com/StygianEx/monthlyIndex/raw/main/music/12th/Sleeping%20With%20Sirens%20-%20Don't%20You%20Ever%20Forget%20About%20Me%20(320K).mp3",
+"https://github.com/StygianEx/monthlyIndex/raw/main/music/12th/Sleeping%20With%20Sirens%20-%20With%20Ears%20To%20See%20And%20Eyes%20To%20Hear%20(Acoustic%20Version)%20(320K).mp3",
+"https://github.com/StygianEx/monthlyIndex/raw/main/music/11th/A%20Twist%20in%20My%20Story%20(320K).mp3",
+"https://github.com/StygianEx/monthlyIndex/raw/main/music/11th/Awake%20(320K).mp3",
+"https://github.com/StygianEx/monthlyIndex/raw/main/music/11th/Secondhand%20Serenade%20-%20Fall%20for%20you%20(320K).mp3",
+"https://github.com/StygianEx/monthlyIndex/raw/main/music/11th/Secondhand%20Serenade%20-%20Vulnerable%20(320K).mp3",
+"https://github.com/StygianEx/monthlyIndex/raw/main/music/11th/Secondhand%20Serenade%20Your%20Call%20(320K).mp3"],
+
+playPreviousTrackButton = $("#play-previous"),
+playNextTrackButton = $("#play-next"),
+currIndex = -1;
+
+function playPause() {
+  setTimeout(function () {
+    if (audio.paused) {
+      playerTrack.addClass("active");
+      albumArt.addClass("active");
+      checkBuffering();
+      i.attr("class", "fas fa-pause");
+      audio.play();
+    } else {
+      playerTrack.removeClass("active");
+      albumArt.removeClass("active");
+      clearInterval(buffInterval);
+      albumArt.removeClass("buffering");
+      i.attr("class", "fas fa-play");
+      audio.pause();
+    }
+  }, 300);
+}
+
+function showHover(event) {
+  seekBarPos = sArea.offset();
+  seekT = event.clientX - seekBarPos.left;
+  seekLoc = audio.duration * (seekT / sArea.outerWidth());
+
+  sHover.width(seekT);
+
+  cM = seekLoc / 60;
+
+  ctMinutes = Math.floor(cM);
+  ctSeconds = Math.floor(seekLoc - ctMinutes * 60);
+
+  if (ctMinutes < 0 || ctSeconds < 0) return;
+
+  if (ctMinutes < 0 || ctSeconds < 0) return;
+
+  if (ctMinutes < 10) ctMinutes = "0" + ctMinutes;
+  if (ctSeconds < 10) ctSeconds = "0" + ctSeconds;
+
+  if (isNaN(ctMinutes) || isNaN(ctSeconds)) insTime.text("--:--");else
+  insTime.text(ctMinutes + ":" + ctSeconds);
+
+  insTime.css({ left: seekT, "margin-left": "-21px" }).fadeIn(0);
+}
+
+function hideHover() {
+  sHover.width(0);
+  insTime.text("00:00").css({ left: "0px", "margin-left": "0px" }).fadeOut(0);
+}
+
+function playFromClickedPos() {
+  audio.currentTime = seekLoc;
+  seekBar.width(seekT);
+  hideHover();
+}
+
+function updateCurrTime() {
+  nTime = new Date();
+  nTime = nTime.getTime();
+
+  if (!tFlag) {
+    tFlag = true;
+    trackTime.addClass("active");
+  }
+
+  curMinutes = Math.floor(audio.currentTime / 60);
+  curSeconds = Math.floor(audio.currentTime - curMinutes * 60);
+
+  durMinutes = Math.floor(audio.duration / 60);
+  durSeconds = Math.floor(audio.duration - durMinutes * 60);
+
+  playProgress = audio.currentTime / audio.duration * 100;
+
+  if (curMinutes < 10) curMinutes = "0" + curMinutes;
+  if (curSeconds < 10) curSeconds = "0" + curSeconds;
+
+  if (durMinutes < 10) durMinutes = "0" + durMinutes;
+  if (durSeconds < 10) durSeconds = "0" + durSeconds;
+
+  if (isNaN(curMinutes) || isNaN(curSeconds)) tProgress.text("00:00");else
+  tProgress.text(curMinutes + ":" + curSeconds);
+
+  if (isNaN(durMinutes) || isNaN(durSeconds)) tTime.text("00:00");else
+  tTime.text(durMinutes + ":" + durSeconds);
+
+  if (
+  isNaN(curMinutes) ||
+  isNaN(curSeconds) ||
+  isNaN(durMinutes) ||
+  isNaN(durSeconds))
+
+  trackTime.removeClass("active");else
+  trackTime.addClass("active");
+
+  seekBar.width(playProgress + "%");
+
+  if (playProgress == 100) {
+    i.attr("class", "fa fa-play");
+    seekBar.width(0);
+    tProgress.text("00:00");
+    albumArt.removeClass("buffering").removeClass("active");
+    clearInterval(buffInterval);
+  }
+}
+
+function checkBuffering() {
+  clearInterval(buffInterval);
+  buffInterval = setInterval(function () {
+    if (nTime == 0 || bTime - nTime > 1000) albumArt.addClass("buffering");else
+    albumArt.removeClass("buffering");
+
+    bTime = new Date();
+    bTime = bTime.getTime();
+  }, 100);
+}
+
+function selectTrack(flag) {
+  if (flag == 0 || flag == 1) ++currIndex;else
+  --currIndex;
+
+  if (currIndex > -1 && currIndex < albumArtworks.length) {
+    if (flag == 0) i.attr("class", "fa fa-play");else
+    {
+      albumArt.removeClass("buffering");
+      i.attr("class", "fa fa-pause");
+    }
+
+    seekBar.width(0);
+    trackTime.removeClass("active");
+    tProgress.text("00:00");
+    tTime.text("00:00");
+
+    currAlbum = albums[currIndex];
+    currTrackName = trackNames[currIndex];
+    currArtwork = albumArtworks[currIndex];
+
+    audio.src = trackUrl[currIndex];
+
+    nTime = 0;
+    bTime = new Date();
+    bTime = bTime.getTime();
+
+    if (flag != 0) {
+      audio.play();
+      playerTrack.addClass("active");
+      albumArt.addClass("active");
+
+      clearInterval(buffInterval);
+      checkBuffering();
+    }
+
+    albumName.text(currAlbum);
+    trackName.text(currTrackName);
+    albumArt.find("img.active").removeClass("active");
+    $("#" + currArtwork).addClass("active");
+
+    bgArtworkUrl = $("#" + currArtwork).attr("src");
+
+    bgArtwork.css({ "background-image": "url(" + bgArtworkUrl + ")" });
+  } else {
+    if (flag == 0 || flag == 1) --currIndex;else
+    ++currIndex;
+  }
+}
+
+function initPlayer() {
+  audio = new Audio();
+
+  selectTrack(0);
+
+  audio.loop = false;
+
+  playPauseButton.on("click", playPause);
+
+  sArea.mousemove(function (event) {
+    showHover(event);
+  });
+
+  sArea.mouseout(hideHover);
+
+  sArea.on("click", playFromClickedPos);
+
+  $(audio).on("timeupdate", updateCurrTime);
+
+  playPreviousTrackButton.on("click", function () {
+    selectTrack(-1);
+  });
+  playNextTrackButton.on("click", function () {
+    selectTrack(1);
+  });
+}
+
+initPlayer();
+});
+//# sourceURL=pen.js
+  </script>
+</body>
+</html>
