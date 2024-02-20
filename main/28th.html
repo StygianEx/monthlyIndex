@@ -1,0 +1,892 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>28th</title>
+  <link rel="icon" href="https://www.svgrepo.com/show/513311/heart.svg">
+  
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css'>
+  
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Gloria+Hallelujah&family=Montserrat:wght@400;500;600;700;800;900&display=swap");
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --border-radius: 10px;
+}
+
+body.prevent-background-scroll {
+  min-height: 100dvh;
+  overflow-y: hidden;
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  background-image: radial-gradient(
+      circle at 65% 15%,
+      rgba(255, 255, 255, 0.01) 0%,
+      rgba(255, 255, 255, 0.01) 3%,
+      transparent 3%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 40% 33%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 3%,
+      transparent 3%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 9% 92%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 3%,
+      transparent 3%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 84% 0%,
+      rgba(255, 255, 255, 0.01) 0%,
+      rgba(255, 255, 255, 0.01) 7%,
+      transparent 7%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 97% 94%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 7%,
+      transparent 7%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 13% 95%,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(255, 255, 255, 0.02) 7%,
+      transparent 7%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 77% 8%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 7%,
+      transparent 7%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 58% 0%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 7%,
+      transparent 7%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 76% 71%,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(255, 255, 255, 0.02) 7%,
+      transparent 7%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 88% 74%,
+      rgba(255, 255, 255, 0.01) 0%,
+      rgba(255, 255, 255, 0.01) 7%,
+      transparent 7%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 74% 99%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 7%,
+      transparent 7%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 16% 56%,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(255, 255, 255, 0.02) 7%,
+      transparent 7%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 25% 4%,
+      rgba(255, 255, 255, 0.02) 0%,
+      rgba(255, 255, 255, 0.02) 5%,
+      transparent 5%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 54% 83%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 5%,
+      transparent 5%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 70% 60%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 5%,
+      transparent 5%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 23% 73%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 5%,
+      transparent 5%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 63% 81%,
+      rgba(255, 255, 255, 0.01) 0%,
+      rgba(255, 255, 255, 0.01) 5%,
+      transparent 5%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 56% 58%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 5%,
+      transparent 5%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 64% 68%,
+      rgba(255, 255, 255, 0.03) 0%,
+      rgba(255, 255, 255, 0.03) 5%,
+      transparent 5%,
+      transparent 100%
+    ),
+    radial-gradient(
+      circle at 52% 48%,
+      rgba(255, 255, 255, 0.01) 0%,
+      rgba(255, 255, 255, 0.01) 5%,
+      transparent 5%,
+      transparent 100%
+    ),
+    linear-gradient(0deg, rgb(18, 23, 42), rgb(13, 18, 34));
+  background-repeat: no-repeat;
+  overflow-x: hidden;
+}
+
+/* INTRO */
+
+.intro {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  place-items: center;
+  gap: 30px;
+  min-height: 100vh;
+  width: 100%;
+  padding: 80px 100px;
+}
+
+.intro-content {
+  padding-right: 100px;
+}
+
+.intro-content h1 {
+  color: transparent;
+  font-family: "Gloria Hallelujah", cursive;
+  font-size: clamp(2rem, 5vw, 3rem);
+  line-height: 1.4;
+  animation: fade-in-out 12s linear infinite;
+}
+
+@keyframes fade-in-out {
+  0% {
+    color: #fff;
+    filter: hue-rotate(0deg);
+    text-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff;
+  }
+
+  30%,
+  70% {
+    color: #fff;
+    filter: hue-rotate(360deg);
+    text-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff;
+  }
+
+  100% {
+    color: transparent;
+    box-shadow: none;
+    filter: hue-rotate(0deg);
+  }
+}
+
+.collage-art {
+  font-size: 1.4rem;
+  font-family: 600;
+  color: #fff;
+  text-shadow: 0 0 10px #00b3ff, 0 0 20px #00b3ff;
+}
+
+.intro-content p {
+  font-family: inherit;
+  font-size: clamp(0.8rem, 4vw, 1.1rem);
+  color: #94a3b8;
+  font-weight: 500;
+  line-height: 1.6;
+  margin: 30px 0 50px;
+  text-align: justify;
+}
+
+.btn {
+  padding: 1rem 4rem;
+  font-size: clamp(0.8rem, 4vw, 1rem);
+  font-weight: 600;
+  background: transparent;
+  color: #18d25f;
+  border-radius: 0.5rem;
+  border-bottom: 2px solid #18d25f;
+  border-right: 2px solid #18d25f;
+  border-top: 2px solid rgb(9, 199, 251, 0.7);
+  border-left: 2px solid rgb(9, 199, 251, 0.7);
+  transition-duration: 1s;
+  transition-property: border-top, border-left, border-bottom, border-right,
+    box-shadow;
+  cursor: pointer;
+  outline-color: transparent;
+  text-decoration: underline;
+}
+
+.btn:hover {
+  border-top: 2px solid #18d25f;
+  border-left: 2px solid #18d25f;
+  border-bottom: 2px solid rgb(9, 199, 251, 0.7);
+  border-right: 2px solid rgb(9, 199, 251, 0.7);
+  box-shadow: rgb(9, 199, 251, 0.4) 5px 5px, rgb(9, 199, 251, 0.3) 10px 10px,
+    rgb(9, 199, 251, 0.2) 15px 15px;
+}
+
+.card-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.card {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 200px;
+  aspect-ratio: 3/4;
+  background: linear-gradient(#fff2, transparent);
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  margin: 0 -45px;
+  backdrop-filter: blur(10px);
+  transform: rotate(calc(var(--r) * 1deg)) translateY(calc(var(--y) * 1px))
+    translateX(calc(var(--x) * -1px));
+  transition: all 0.8s linear;
+}
+
+.card img,
+.item img {
+  width: 90%;
+  height: 90%;
+}
+
+.item img {
+  object-fit: cover;
+}
+
+.card-container:hover .card {
+  margin: 0 10px;
+  transform: rotate(0deg) translateY(0) translateX(0);
+}
+
+/* FEATURED */
+
+.featured {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 60px 100px 80px;
+}
+
+.gradient-line {
+  display: flex;
+  justify-content: center;
+  height: 4px;
+  width: 100%;
+  border-radius: 10px;
+  background-color: #09c7fb;
+  background-image: linear-gradient(
+    90deg,
+    rgb(9, 199, 251, 0.7) 0%,
+    rgb(147, 251, 157, 0.7) 65%
+  );
+  margin-bottom: 35px;
+}
+
+.featured h1 {
+  font-family: "Caveat", cursive;
+  font-size: clamp(3rem, 5vw, 4rem);
+  font-weight: 600;
+  color: #fff;
+  text-shadow: 0 0 10px #18d25f, 0 0 20px #18d25f;
+  margin-bottom: 60px;
+}
+
+.grid-area {
+  display: grid;
+  grid-template-columns: repeat(8, 100px);
+  grid-template-rows: repeat(7, 100px);
+  gap: 20px;
+}
+
+.item {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(#fff2, transparent);
+  box-shadow: 0 25px 25px rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(10px);
+  cursor: pointer;
+}
+
+.art-one {
+  grid-area: 1 / 1 / 3 / 3;
+}
+
+.art-two {
+  grid-area: 1 / 3 / 4 / 5;
+}
+
+.art-three {
+  grid-area: 1 / 5 / 3 / 7;
+}
+
+.art-four {
+  grid-area: 1 / 7 / 3 / 9;
+}
+
+.art-six {
+  grid-area: 4 / 3 / 6 / 5;
+}
+
+.art-five {
+  grid-area: 3 / 1 / 5 / 3;
+}
+
+.art-seven {
+  grid-area: 3 / 5 / 5 / 7;
+}
+
+.art-eight {
+  grid-area: 3 / 7 / 6 / 9;
+}
+
+.art-nine {
+  grid-area: 5 / 1 / 8 / 3;
+}
+
+.art-ten {
+  grid-area: 6 / 3 / 8 / 5;
+}
+
+.art-eleven {
+  grid-area: 5 / 5 / 8 / 7;
+}
+
+.art-twelve {
+  grid-area: 6 / 7 / 8 / 9;
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  padding: 0 10px;
+  z-index: 20;
+  animation: openLightbox 0.6s ease-in-out 1 normal;
+}
+
+@keyframes openLightbox {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.img-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  background: rgba(46, 46, 46, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  color: #fff;
+  z-index: 30;
+}
+
+.img-container p {
+  text-align: center;
+  font-size: clamp(0.9rem, 4vw, 1.25rem);
+  font-weight: 500;
+  padding: 15px 20px;
+  color: #fff;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.img-container img {
+  max-width: 100%;
+  width: 600px;
+  aspect-ratio: 1/1;
+  border-radius: 0 0 12px 12px;
+  object-fit: cover;
+  user-select: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+}
+
+.slide {
+  position: absolute;
+  top: 50%;
+  -ms-transform: translate(0, -50%);
+  transform: translate(0, -50%);
+  background: rgba(46, 46, 46, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 5px;
+  color: #fff;
+  font-size: 2rem;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  z-index: 40;
+}
+
+.slide:hover {
+  background: rgba(15, 14, 28, 0.9);
+}
+
+.prev {
+  left: 14%;
+}
+
+.next {
+  right: 14%;
+}
+
+@media (max-width: 1400px) {
+  .intro {
+    gap: 30px;
+    padding: 80px 70px;
+  }
+
+  .intro-content {
+    padding-right: 70px;
+  }
+
+  .btn {
+    padding: 1rem 3rem;
+  }
+}
+
+@media (max-width: 975px) {
+  .intro {
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(2, 1fr);
+    gap: 30px;
+    grid-template-areas:
+      "card-container"
+      "intro-content";
+    padding: 40px 60px 30px;
+  }
+
+  .intro-content {
+    grid-area: intro-content;
+    padding-right: 0;
+    text-align: center;
+  }
+
+  .card-container {
+    grid-area: card-container;
+  }
+
+  .card {
+    max-width: 150px;
+  }
+
+  .featured {
+    padding: 60px 70px 80px;
+  }
+
+  .grid-area {
+    display: grid;
+    grid-template-columns: repeat(6, 100px);
+    grid-template-rows: repeat(9, 100px);
+    gap: 20px;
+    margin: 40px 30px 60px;
+  }
+
+  .art-four {
+    grid-area: 8 / 1 / 10 / 3;
+  }
+
+  .art-eight {
+    grid-area: 8 / 3 / 10 / 5;
+  }
+
+  .art-twelve {
+    grid-area: 8 / 5 / 10 / 7;
+  }
+}
+
+@media (max-width: 750px) {
+  .grid-area {
+    grid-template-columns: repeat(6, 90px);
+    grid-template-rows: repeat(9, 90px);
+  }
+
+  .featured {
+    padding: 60px 50px 80px;
+  }
+
+  .slide {
+    font-size: 2rem;
+    padding: 14px;
+  }
+
+  .prev {
+    left: 5%;
+  }
+
+  .next {
+    right: 5%;
+  }
+}
+
+@media (max-width: 670px) {
+  .grid-area {
+    grid-template-columns: repeat(4, 110px);
+    grid-template-rows: repeat(14, 110px);
+  }
+
+  .art-three {
+    grid-area: 11 / 3 / 13 / 5;
+  }
+
+  .art-four {
+    grid-area: 8 / 1 / 10 / 3;
+  }
+
+  .art-seven {
+    grid-area: 13 / 3 / 15 / 5;
+  }
+
+  .art-eight {
+    grid-area: 8 / 3 / 11 / 5;
+  }
+
+  .art-eleven {
+    grid-area: 12 / 1 / 15 / 3;
+  }
+
+  .art-twelve {
+    grid-area: 10 / 1 / 12 / 3;
+  }
+}
+
+@media (max-width: 530px) {
+  .intro {
+    grid-template-rows: 45% 45%;
+    gap: 20px;
+    padding: 10px 60px 60px;
+  }
+
+  .intro-content {
+    margin-top: 90px;
+  }
+
+  .grid-area {
+    grid-template-columns: repeat(4, 90px);
+    grid-template-rows: repeat(14, 90px);
+  }
+}
+
+@media (max-width: 460px) {
+  .intro {
+    padding: 10px 30px 60px;
+  }
+
+  .card {
+    max-width: 130px;
+  }
+
+  .grid-area {
+    grid-template-columns: repeat(4, 70px);
+    grid-template-rows: repeat(14, 70px);
+  }
+
+  .featured {
+    padding: 60px 40px 80px;
+  }
+
+  .featured h1 {
+    margin-bottom: 0;
+  }
+
+  .img-container p {
+    padding: 10px;
+  }
+  
+  .slide {
+    font-size: 1.4rem;
+  }
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">
+  <body>
+    <section class="intro">
+      <div class="intro-content">
+        <h1 class="title">28th Month of Friendship</h1>
+        <p class="description">Sharing
+          <span class="collage-art">love and friendship</span> 
+          in a span of 28 months has been a gracious experience for us. 
+          We shared joy and laughter, though there are times that we're also feeling sad. 
+          But I'm glad we pushed through, and here we are now, staying strong. 
+          I miss everything about you, ya know. Let's keep our bond tight, 
+          we will face each struggle along the way and learn from our mistakes.
+        </p>
+        <a href="#featured" class="btn">Hidden Leaf Shinobi</a>
+      </div>
+
+      <div class="card-container">
+        <div style="--r: -15; --y: 40; --x: 50" class="card">
+          <img src="https://i.pinimg.com/236x/a2/89/07/a28907cac859d1ae12096a631905c750.jpg" alt="" />
+        </div>
+        <div style="--r: 5; --y: -30; --x: 30" class="card">
+          <img src="https://i.pinimg.com/236x/d9/d6/f8/d9d6f886d738b7c27cdda5fda893024d.jpg" alt="" />
+        </div>
+        <div style="--r: 15; --y: 50; --x: 0" class="card">
+          <img src="https://i.pinimg.com/236x/e1/68/a2/e168a2ec55d66d73452a9aea5ee1095c.jpg" alt="" />
+        </div>
+      </div>
+    </section>
+
+    <section class="featured" id="featured">
+      <div class="gradient-line"></div>
+      <h1 class="featured-title"></h1>
+      <div class="grid-area">
+        <div class="item art-one">
+          <img src="https://i.pinimg.com/236x/39/e5/46/39e546c5c526ba152664758222399315.jpg" alt="Naruto" />
+        </div>
+
+        <div class="item art-two">
+          <img src="https://i.pinimg.com/236x/f8/26/cb/f826cb95dd2479fd1d78701e7e7b7ce4.jpg" alt="Sasuke" />
+        </div>
+
+        <div class="item art-three">
+          <img
+            src="https://i.pinimg.com/236x/58/ed/16/58ed16b5154996a8d9d73ece8fe5e698.jpg" alt="Shikamaru" />
+        </div>
+
+        <div class="item art-four">
+          <img
+            src="https://i.pinimg.com/236x/e6/7b/bd/e67bbd596ab2146e895bbf65dd4cfb29.jpg" alt="Choji" />
+        </div>
+
+        <div class="item art-five">
+          <img src="https://i.pinimg.com/236x/b5/9d/97/b59d9743092bad73904898620559b439.jpg" alt="Sakura" />
+        </div>
+
+        <div class="item art-six">
+          <img src="https://i.pinimg.com/236x/19/4b/f4/194bf4c3e3e40a9877a46d086f870e33.jpg" alt="Shino" />
+        </div>
+
+        <div class="item art-seven">
+          <img src="https://i.pinimg.com/236x/73/f9/a3/73f9a3b523d0f5b521925c88cc04c367.jpg" alt="Ino" />
+        </div>
+
+        <div class="item art-eight">
+          <img
+            src="https://i.pinimg.com/236x/b7/5e/49/b75e49d33971727b9d295f8f6ae86b92.jpg" alt="Lee" />
+        </div>
+
+        <div class="item art-nine">
+          <img src="https://i.pinimg.com/236x/e8/a9/db/e8a9db1f9a02782b336ee2b83615d731.jpg" alt="Hinata" />
+        </div>
+
+        <div class="item art-ten">
+          <img src="https://i.pinimg.com/236x/50/55/83/505583cca4ff84f39ca215fd26863aaa.jpg" alt="Kiba" />
+        </div>
+
+        <div class="item art-eleven">
+          <img
+            src="https://i.pinimg.com/236x/ec/cc/f2/ecccf21d4ae79bc4a5c6576e4ecf05f2.jpg" alt="Neji" />
+        </div>
+
+        <div class="item art-twelve">
+          <img src="https://i.pinimg.com/236x/3c/a0/53/3ca053fe6b518192fe45b8b32e2d09f1.jpg" alt="Tenten" />
+        </div>
+      </div>
+
+      <div class="lightbox">
+        <div class="slide prev">
+          <i class="fa-solid fa-angle-left"></i>
+        </div>
+        <div class="img-container">
+          <p>title</p>
+          <img src="sample.jpg" alt="" />
+        </div>
+        <div class="slide next">
+          <i class="fa-solid fa-angle-right"></i>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src='https://unpkg.com/scrollreveal'></script>
+      <script id="rendered-js" >
+// ScrollReveal JS
+
+ScrollReveal({ distance: "50px" });
+
+ScrollReveal().reveal(".title", {
+  delay: 200,
+  easing: "ease-in",
+  origin: "top",
+  distance: "70px",
+  duration: 900 });
+
+
+ScrollReveal().reveal(".description", {
+  delay: 1000,
+  easing: "ease-in",
+  origin: "top",
+  distance: "30px",
+  duration: 1000 });
+
+
+ScrollReveal().reveal(".btn", {
+  delay: 2000,
+  easing: "ease-in-out",
+  duration: 1000 });
+
+
+ScrollReveal().reveal(".card-container", {
+  delay: 400,
+  easing: "ease-in-out",
+  origin: "right",
+  distance: "800px",
+  duration: 2500 });
+
+
+ScrollReveal().reveal(".gradient-line", {
+  delay: 200,
+  easing: "ease",
+  origin: "left",
+  distance: "1800px",
+  duration: 3600 });
+
+
+ScrollReveal().reveal(".featured-title", {
+  delay: 400,
+  easing: "ease-in",
+  origin: "right",
+  distance: "200px",
+  duration: 1400 });
+
+
+ScrollReveal().reveal(".item", {
+  delay: 1200,
+  interval: 200,
+  origin: "bottom",
+  easing: "ease-in-out",
+  duration: 400 });
+
+
+// Lightbox
+
+document.addEventListener("DOMContentLoaded", function () {
+  const galleryImages = document.querySelectorAll(".item img");
+  const lightbox = document.querySelector(".lightbox");
+  const lightboxImage = document.querySelector(".img-container img");
+  const lightboxTitle = document.querySelector(".img-container p");
+  const prevBtn = document.querySelector(".prev");
+  const nextBtn = document.querySelector(".next");
+  const body = document.querySelector("body");
+
+  let currentIndex;
+
+  galleryImages.forEach((img, index) => {
+    img.addEventListener("click", function () {
+      currentIndex = index;
+      updateLightbox();
+      lightbox.style.display = "flex";
+      body.classList.add("prevent-background-scroll");
+    });
+  });
+
+  lightbox.addEventListener("click", function (e) {
+    if (e.target === lightbox) {
+      lightbox.style.display = "none";
+      body.classList.remove("prevent-background-scroll");
+    }
+  });
+
+  prevBtn.addEventListener("click", function () {
+    currentIndex =
+    (currentIndex - 1 + galleryImages.length) % galleryImages.length;
+    updateLightbox();
+  });
+
+  nextBtn.addEventListener("click", function () {
+    currentIndex = (currentIndex + 1) % galleryImages.length;
+    updateLightbox();
+  });
+
+  function updateLightbox() {
+    const currentImage = galleryImages[currentIndex];
+    lightboxImage.src = currentImage.src;
+    lightboxTitle.textContent = currentImage.alt;
+  }
+});
+//# sourceURL=pen.js
+    </script>
+
+  
+</body>
+
+</html>
