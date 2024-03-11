@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>34th</title>
+  <link rel="icon" href="https://www.svgrepo.com/show/513311/heart.svg">
+  
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+:root {
+	--spacing: 2rem;
+	--spacing-half: 1rem;
+	--spacing-double: 4rem;
+}
+
+*,*::before,*::after,input,select,form{box-sizing:border-box}*{margin:0}html,body{height:100%}body{line-height:1.5;-webkit-font-smoothing:antialiased}img,picture,video,canvas,svg{display:block;max-width:100%}input,button,textarea,select{font:inherit}p,h1,h2,h3,h4,h5,h6{overflow-wrap:break-word}
+
+body {
+  height: auto;
+  background: #111;
+  color: #fff8;
+  font: 300 100%/1.5 system-ui; 
+  background: linear-gradient(to top, hsl(260, 84%, 5%), hsl(260, 84%, 0%)); 
+  background-attachment: fixed;
+}
+
+
+body {
+		&::before {
+		width: 100%; display: block; content: '';
+		height: .1rem;  position: absolute; top: 0; left: 0;
+		background: linear-gradient(to right, cyan, magenta, yellow);
+	}
+}
+
+* { text-align: center; }
+h1 {
+  font-weight: 400;
+  color: #fff9;
+  line-height: 1.1;
+  letter-spacing: 0.06rem;
+}
+
+h1 { 
+	font-family: 'Pacifico', cursive, system-ui;
+	font-size: clamp(3.8rem, calc(5vw + 1rem), 3.8rem);
+	margin-bottom: var(--spacing-half);
+	text-transform: lowercase;
+	color: #fff;
+	position: relative;
+}
+
+/* dark voodoo stuff */
+sup {
+	text-transform: uppercase;
+	font-size: 70%;
+	color: rgba(255, 255, 255, 0.4);
+	letter-spacing: .15rem;
+	&:after, &:before {
+		display: inline-block;
+		content: '---------------';
+		word-break: none;
+		letter-spacing: -.1rem;
+		color: rgba(255, 255, 255, 0.3);
+	}
+	&:after { margin-left: .5rem; }
+	&:before { margin-right: .5rem; }
+}
+
+
+
+a { color: currentcolor; text-underline-offset: .2rem; text-decoration: none; }
+a:hover, a:active, a:focus { color: cyan; }
+
+i { font-style: normal; }
+
+/* why not */
+@keyframes why-not {
+	0% { opacity: 1 }
+	90% { opacity: 1; text-shadow: 0 0 var(--spacing-double) currentcolor; }
+	95% { opacity: 0; text-shadow: 0 0 20rem currentcolor; transform: rotateX(0); }
+	100% { opacity: 1; text-shadow: 0 0 20rem currentcolor; transform: rotateX(25deg); }
+}
+
+h1 {
+	i:nth-child(1){ color: #00ff00; text-shadow: 0 0 var(--spacing-double) currentcolor; }
+	
+	i {
+		display: inline-block;
+		animation: why-not alternate 1s linear infinite;
+		&:nth-child(2){ animation-delay: 20ms; }
+		&:nth-child(3){ animation-delay: 40ms; }
+	}
+}
+
+
+.lead {
+	p { margin: 0 auto; }
+	p:first-child { font-size: 150%; color: white; margin-bottom: calc(var(--spacing) / 4); }
+}
+
+.main {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prefixfree/1.0.7/prefixfree.min.js"></script>
+
+  
+</head>
+
+<body translate="no">
+  <!-- overdesigned stuff -->
+
+<div class="main">
+    <sup>Things are much better when I'm with you.</sup>
+<h1>
+    <i>34th Month of Love & Friendship</i>
+</h1>
+
+
+<!-- also a bit overdesigned stuff -->
+<div class="lead">
+	<p>“Celebrating another month of love and happiness with you. We've come this far, it's good to share a lot of memories with you. Let's keep our bond strong, let's keep a hold of each other very tightly. I always cherish you, we'll stick together through ups and downs.”</p>
+</div>
+</div>
+
+</body>
+
+</html>
