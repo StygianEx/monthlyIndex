@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <title>35th</title>
+  <link rel="icon" href="https://www.svgrepo.com/show/513311/heart.svg">
+  <script src="https://cdn.tailwindcss.com"></script>
+  
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,400&display=swap");
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+
+h2 {
+  font-family: "Playfair Display", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.card {
+  position: relative;
+}
+.card::before {
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  transition: 0.6s;
+  z-index: 0;
+  background-color: #000000;
+}
+.card:hover {
+  box-shadow: 0.063rem 0.063rem 1.25rem 0.375rem rgba(0, 0, 0, 0.53);
+}
+.card:nth-child(1)::before {
+  bottom: 0;
+  right: 0;
+  clip-path: circle(calc(6.25rem + 7.5vw) at 100% 100%);
+}
+.card:nth-child(2)::before {
+  bottom: 0;
+  left: 0;
+  clip-path: circle(calc(6.25rem + 7.5vw) at 0% 100%);
+}
+.card:nth-child(3)::before {
+  top: 0;
+  right: 0;
+  clip-path: circle(calc(6.25rem + 7.5vw) at 100% 0%);
+}
+.card:nth-child(4)::before {
+  top: 0;
+  left: 0;
+  clip-path: circle(calc(6.25rem + 7.5vw) at 0% 0%);
+}
+.card p {
+  transition: 0.8s;
+}
+
+.card:hover::before {
+  clip-path: circle(110vw at 100% 100%);
+}
+
+.card:hover p {
+  color: #fff;
+}
+
+@media screen and (min-width: 62.5rem) {
+  .circle {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+  }
+}
+
+.card:nth-child(1) .circle {
+  background: url("https://c4.wallpaperflare.com/wallpaper/161/571/676/abstract-digital-art-depth-of-field-hexagon-wallpaper-preview.jpg") no-repeat 50% 50%/cover;
+  bottom: 0;
+  right: 0;
+  clip-path: circle(calc(6.25rem + 7.5vw) at 100% 100%);
+}
+
+.card:nth-child(2) .circle {
+  background: url("https://c4.wallpaperflare.com/wallpaper/161/571/676/abstract-digital-art-depth-of-field-hexagon-wallpaper-preview.jpg") no-repeat 50% 50%/cover;
+  bottom: 0;
+  left: 0;
+  clip-path: circle(calc(6.25rem + 7.5vw) at 0% 100%);
+}
+
+.card:nth-child(3) .circle {
+  background: url("https://c4.wallpaperflare.com/wallpaper/161/571/676/abstract-digital-art-depth-of-field-hexagon-wallpaper-preview.jpg") no-repeat 50% 50%/cover;
+  top: 0;
+  right: 0;
+  clip-path: circle(calc(6.25rem + 7.5vw) at 100% 0%);
+}
+
+.card:nth-child(4) .circle {
+  background: url("https://c4.wallpaperflare.com/wallpaper/161/571/676/abstract-digital-art-depth-of-field-hexagon-wallpaper-preview.jpg") no-repeat 50% 50%/cover;
+  top: 0;
+  left: 0;
+  clip-path: circle(calc(6.25rem + 7.5vw) at 0% 0%);
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">
+  <section class="min-h-screen bg-gray-900 text-center py-20 px-8 xl:px-0 flex flex-col justify-center">
+
+  <h1 class="text-white text-4xl md:text-5xl xl:text-6xl font-semibold max-w-3xl mx-auto mb-16 leading-snug">35th Month of Love & Friendship</h1>
+  <span class="text-gray-400 text-lg max-w-lg mx-auto mb-2 capitalize flex items-center">The 4 Fundamental Pillars of a Relationship</span>
+  <div class="grid-offer text-left grid sm:grid-cols-2 md:grid-cols-2 gap-5 max-w-5xl mx-auto">
+    <div class="card bg-gray-800 p-10 relative">
+      <div class="circle">
+      </div>
+      <div class="relative lg:pr-52">
+        <h2 class="capitalize text-white mb-4 text-2xl xl:text-3xl">Communication<br/></h2>
+        <p class="text-gray-400" style="text-align: justify;">Communication in a relationship is one of the keys to maintaining stability with your partner and avoid falling into a boring routine. You should feel comfortable and at ease talking to each other, without fear of criticisms.</p>
+      </div>
+      <div class="icon"></div>
+    </div>
+    <div class="card bg-gray-800 p-10 relative">
+      <div class="circle">
+      </div>
+      <div class="relative lg:pl-48">
+        <h2 class="capitalize text-white mb-4 text-2xl xl:text-3xl">Trust<br/></h2>
+        <p class="text-gray-400" style="text-align: justify;">Trust means you can be yourself, without the fear of being judged or criticized. This includes not being judged for being who you are or liking the things that you like. The person you put your trust in should use constructive criticism and not try to change you. You can get this kind of trust with your partner with time and good communication.</p>
+      </div>
+    </div>
+    <div class="card bg-gray-800 p-10 relative">
+      <div class="circle">
+      </div>
+      <div class="relative lg:pr-44">
+        <h2 class="capitalize text-white mb-4 text-2xl xl:text-3xl">Support<br/></h2>
+        <p class="text-gray-400" style="text-align: justify;">The level of support that a couple has is unlike any other bond you can establish. This is the connection that facilitates communication and sharing things you have in common.</p>
+      </div>
+    </div>
+    <div class="card bg-gray-800 p-10 relative">
+      <div class="circle">
+      </div>
+      <div class="relative lg:pl-48">
+        <h2 class="capitalize text-white mb-4 text-2xl xl:text-3xl">Creativity<br/></h2>
+        <p class="text-gray-400" style="text-align: justify;">Creativity is a quality that we all possess and can cultivate in many ways. It’s the key ingredient and one of the pillars of a relationship that lets you escape your routine. In addition, it can renew a relationship and rekindle the intensity of your love when you feel like everything has changed.</p>
+      </div>
+    </div>
+  </div>
+  
+      <script id="rendered-js" >
+/*inspiration
+https://jimfahaddigital.com/tutorial/how-to-make-a-business-website-using-wordpress-and-elementor-2024/
+*/
+//# sourceURL=pen.js
+    </script>
+
+  
+</body>
+
+</html>
