@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+  <title>36th</title>
+  <link rel="icon" href="https://www.svgrepo.com/show/513311/heart.svg">
+
+  <link rel="canonical" href="https://codepen.io/jlengstorf/pen/WNPGMJo">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Sevillana&display=swap" rel="stylesheet">
+  
+<style>
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+/**
+ * `@property` is required for the animation to work.
+ * Without it, the angle values won’t interpolate properly.
+ *
+ * @see https://dev.to/afif/we-can-finally-animate-css-gradient-kdk
+ */
+@property --bg-angle {
+  inherits: false;
+  initial-value: 0deg;
+  syntax: "<angle>";
+}
+
+/**
+ * To animate the gradient, we set the custom property to 1 full
+ * rotation. The animation starts at the default value of `0deg`.
+ */
+@keyframes spin {
+  to {
+    --bg-angle: 360deg;
+  }
+}
+
+
+article {
+  /* add the animation, but pause it by default */
+  animation: spin 2.5s infinite linear paused;
+  
+  /**
+   * Using `background-origin` we can create a “border” using two gradients. And to
+   * make the gradients better-looking, we use OKLCH.
+   *
+   * @see https://developer.mozilla.org/en-US/docs/Web/CSS/background-origin
+   * @see https://evilmartians.com/chronicles/oklch-in-css-why-quit-rgb-hsl
+   */
+  background:
+    /* Background colors don’t work with `background-origin`, so use a gradient. */
+    linear-gradient(
+        to bottom,
+        oklch(0 0 0 / 0.95),
+        oklch(0 0 0 / 0.95)
+      )
+      padding-box, 
+    conic-gradient(
+        from var(--bg-angle) in oklch longer hue,
+        oklch(0.50 0.50 0) 0 0
+      )
+      border-box; 
+  
+  /* a clear border lets the background gradient shine through */
+  border: 1px solid transparent;
+
+  /* unpause the animation on hover */
+  &:hover {
+    animation-play-state: running;
+  }
+}
+
+/******************************************************************
+ * Other styles to make the demo look nice
+ ******************************************************************/
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Playfair Display", serif;
+  line-height: 1.45;
+}
+
+body {
+  margin: 0;
+}
+
+main {
+  /* background: 
+    radial-gradient(
+        circle, 
+        oklch(0.15 0.2 330 / 0), 
+        oklch(0.15 0.2 330 / 1)
+      ),
+    linear-gradient(
+        344deg in oklch,
+        oklch(0.3 0.37 310),
+        oklch(0.35 0.37 330),
+        oklch(0.3 0.37 310)
+      ); */
+      background: black;
+  display: grid;
+  height: 100svh;
+  place-items: center;
+}
+
+article {
+  border-radius: 1rem;
+  box-shadow: 0.125rem 0.25rem 0.25rem 0.5rem oklch(0.1 0.37 315 / 0.25);
+  color: white;
+  padding: 1rem;
+  width: min(400px, 90vw);
+
+  & h1 {
+    text-align: center;
+    line-height: 1.1;
+    margin: 0;
+    font-size: 40px;
+    font-weight: bold;
+  }
+
+  & p {
+    margin: 0.75rem 0 0;
+    text-align: justify;
+    font-size: 18px;
+    font-weight: 500;
+  }
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">
+  <main>
+  <article>
+    <h1>3 Years</h1>
+    <p>
+      Three years down and an eternity to go, our love continues to flow. We've been through so much, and this was a little bit expected, and I'm glad our actions speak for themselves. We've grown a lot since we've been together, maybe not physically, but emotionally and mentally. We will stick together through thick and thin, we'll keep taking simple steps, and let's keep forging ahead. Happy 3rd year of Love and Friendship to us! I'm forever grateful because I have you.
+    </p>
+  </article>
+</main>
+  
+      <script id="rendered-js" >
+// no JS!
+//# sourceURL=pen.js
+    </script>
+
+  
+</body>
+
+</html>
