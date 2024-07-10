@@ -1,0 +1,658 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  
+  <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+  <title>38th</title>
+  <link rel="icon" href="https://www.svgrepo.com/show/513311/heart.svg">
+
+  <link rel="canonical" href="https://codepen.io/ecemgo/pen/ZEPYNXJ">
+  
+  <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css'>
+  
+<style>
+@import url("https://fonts.googleapis.com/css2?family=Comfortaa:wght@700&family=Nunito:wght@300;600&display=swap");
+
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito", sans-serif;
+}
+
+body {
+  /* background-image: radial-gradient(
+      circle at 20% 100%,
+      rgba(184, 184, 184, 0.1) 0%,
+      rgba(184, 184, 184, 0.1) 33%,
+      rgba(96, 96, 96, 0.1) 33%,
+      rgba(96, 96, 96, 0.1) 66%,
+      rgba(7, 7, 7, 0.1) 66%,
+      rgba(7, 7, 7, 0.1) 99%
+    ),
+    linear-gradient(40deg, #040a22, #162561, #202e64, #6f7aa6); */
+  background-repeat: no-repeat;
+  background-size: cover;
+  background: #000000;
+}
+
+section {
+  display: grid;
+  grid-template-columns: 50% 45%;
+  place-items: center;
+  gap: 60px;
+  min-height: 100vh;
+  padding: 20px 60px;
+}
+
+/* CONTENT */
+
+.content {
+  max-width: 2400px;
+}
+
+/* .content h1 {
+  font-family: "Comfortaa", sans-serif;
+  font-size: clamp(2rem, 4vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: 1px;
+  margin-bottom: 36px;
+  color: #fff;
+} */
+
+.content p {
+  font-size: clamp(1rem, 4vw, 1.1rem);
+  font-weight: 300;
+  line-height: 1.5;
+  margin-bottom: 30px;
+  color: #fff;
+  text-align: justify;
+}
+
+/* .content button {
+  background: #eaeaea;
+  color: #202134;
+  font-size: clamp(0.9rem, 4vw, 1rem);
+  font-weight: 600;
+  border: 0;
+  outline: 0;
+  padding: 8px 14px;
+  border-radius: 7px;
+  transform: scale(1);
+  transition: all 0.4s ease-in;
+  cursor: pointer;
+} */
+
+/* .content button:is(:hover, :focus) {
+  transform: scale(0.98);
+  background-color: #6f7aa6;
+  color: #eaeaea;
+} */
+
+/* SLIDER */
+
+.swiper {
+  position: relative;
+  width: 400px;
+  height: 490px;
+}
+
+.swiper-slide {
+  position: relative;
+  background-position: center;
+  background-size: cover;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  user-select: none;
+  border-radius: 20px;
+}
+
+.cost {
+  position: absolute;
+  top: 8px;
+  right: 6px;
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+  border-radius: 30px;
+  padding: 6px 10px;
+  color: #fff;
+  font-size: clamp(0.8rem, 4vw, 0.9rem);
+  font-weight: 600;
+}
+
+.dark-text {
+  color: #202134;
+}
+
+.swiper-slide img {
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+}
+
+.overlay {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 150px;
+  padding: 10px 20px;
+  background: rgba(93, 95, 145, 0.2);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-top: 1px solid rgba(255, 255, 255, 0.3);
+  color: #fff;
+  border-radius: 0 0 20px 20px;
+}
+
+.overlay h1 {
+  font-size: clamp(1.2rem, 4vw, 1.5rem);
+  font-weight: 600;
+}
+
+.overlay p {
+  font-size: clamp(0.8rem, 4vw, 0.9rem);
+  font-weight: 300;
+  line-height: 1.3;
+}
+
+.ratings {
+  display: flex;
+  column-gap: 10px;
+  margin-top: -6px;
+}
+
+.ratings span {
+  font-size: clamp(0.8rem, 4vw, 0.9rem);
+  font-weight: 300;
+}
+
+.heart {
+  color: #ffffff;
+}
+
+@media (max-width: 1050px) {
+  .swiper {
+    width: 350px;
+    height: 450px;
+  }
+}
+
+@media (max-width: 930px) {
+  section {
+    grid-template-columns: 100%;
+    grid-template-rows: 55% 40%;
+    grid-template-areas:
+      "slider"
+      "content";
+    place-items: center;
+    gap: 64px;
+    padding: 60px;
+  }
+
+  .swiper {
+    grid-area: slider;
+  }
+
+  .content {
+    grid-area: content;
+    text-align: center;
+  }
+
+  .content h1 {
+    margin-bottom: 20px;
+  }
+}
+
+@media (max-width: 470px) {
+  section {
+    padding: 40px 40px 60px;
+  }
+
+  .swiper {
+    width: 300px;
+    height: 400px;
+  }
+}
+
+/* neon style */
+.text-effect-wrapper,
+.text {
+  &::before,
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+  }
+}
+
+.text-effect-wrapper {
+  /* Can be anything light-colored */
+  --spotlight-color: white;
+
+  overflow: hidden;
+  position: relative;
+
+  /* Shimmer animation */
+  &::before {
+    -webkit-animation: shimmer 5s infinite linear;
+            animation: shimmer 5s infinite linear;
+    background: 
+      radial-gradient(circle, var(--spotlight-color), transparent 25%) 0 0 / 25% 25%,
+      radial-gradient(circle, var(--spotlight-color), black 25%) 50% 50% / 12.5% 12.5%;
+    inset-block-start: -100%;
+    inset-inline-start: -100%;
+    mix-blend-mode: color-dodge;
+    z-index: 3;
+  }
+
+  /* Extra filter to boost colors and contrast */
+  &::after {
+    -webkit-backdrop-filter: blur(1px) brightness(90%) contrast(150%);
+            backdrop-filter: blur(1px) brightness(90%) contrast(150%);
+    z-index: 4;
+  }
+}
+
+@-webkit-keyframes shimmer {
+  100% {
+    transform: translate3d(50%, 50%, 0);
+  }
+}
+
+@keyframes shimmer {
+  100% {
+    transform: translate3d(50%, 50%, 0);
+  }
+}
+
+.text {
+  /* Mask colors */
+  /* Should be black and white */
+  --background-color: black;
+  --text-color: white;
+
+  /* Text color */
+  /* Can be anything */
+  --color-1: red;
+  --color-2: blue;
+
+  Fuzzy white outline text
+  color: transparent;
+  text-shadow: 
+    0 0 0.02em var(--background-color), 
+    0 0 0.02em var(--text-color),
+    0 0 0.02em var(--text-color), 
+    0 0 0.02em var(--text-color);
+
+  Improve contrast of outline
+  &::before {
+    -webkit-backdrop-filter: blur(0.013em) brightness(400%);
+            backdrop-filter: blur(0.013em) brightness(400%);
+    z-index: 1;
+  }
+
+  Add text color
+  &::after {
+    background: linear-gradient(45deg, var(--color-1), var(--color-2));
+    mix-blend-mode: multiply;
+    z-index: 2;
+  }
+}
+
+/* Alternative styling */
+body:has(#option-toggle:checked) {
+  & .text-effect-wrapper {
+    --spotlight-color: orange;
+    
+    &::after {
+      -webkit-backdrop-filter: brightness(90%) contrast(150%);
+              backdrop-filter: brightness(90%) contrast(150%);
+    }
+  }
+
+  & .text {
+    --angle: 5deg;
+    --color-1: hsl(163, 100%, 51%);
+    --color-2: hsl(295, 88%, 32%);
+    --color-3: hsl(59, 100%, 50%);
+
+    text-shadow: 
+      0 0 0.03em var(--background-color),
+      0 0 0.03em var(--text-color);
+    
+    &::before {
+      -webkit-backdrop-filter: brightness(150%) contrast(200%);
+              backdrop-filter: brightness(150%) contrast(200%);
+    }
+
+    &::after {
+      background: linear-gradient(var(--angle), var(--color-1), var(--color-2), var(--color-3));
+      mix-blend-mode: color-dodge;
+    }
+  } 
+}
+
+/* === Pen styling, ignore */
+
+h2 {
+  --font-size: clamp(6.25rem, 3.25rem + 15vw, 13.75rem);
+
+  font: 700 var(--font-size)/1 "Lato", sans-serif;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0;
+
+  &:empty,
+  &:focus {
+    border: 2px dotted white;
+    min-width: 1ch;
+    outline-offset: 5px;
+  }
+}
+
+/* body {
+  background: black;
+  display: flex;
+  min-height: 100vh;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+} */
+
+label {
+  background-color: hsl(0, 10%, 20%);
+  border-radius: 5px;
+  color: #fff;
+  padding: .5em .5em .3em .5em ;
+  
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 1000;
+  
+  &:has(:checked) {
+    background-color: hsl(120, 5%, 15%);
+  }
+}
+
+input {
+  position: absolute;
+  opacity: 0;
+}
+/* neon style */
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">
+  <body>
+    <div id="tsparticles"></div>
+    <section>
+      
+      <div class="content">
+        <!-- <h1>Let's Travel The World Together!</h1>
+        <p>
+          Our tours are designed to transport you to the heart of the world's
+          most captivating destinations, creating memories that will last a
+          lifetime. You can uncover the hidden gems, iconic landmarks, and
+          unique cultural treasures that make each destination special.
+        </p>
+        <button>Explore Tours</button> -->
+
+        <div class="text-effect-wrapper">
+          <!-- The contenteditable attribute means you can type your text right on the page -->
+          <h2 class="text" contenteditable>38th</h2>
+        </div>
+
+        <p>
+          It's fascinating to me how far we've come. If our relationship were a mere dream, it would be so good to be true. Isn't that right? But we're making things happen, and we're taking the right action to make our relationship better. We are inspired by our deep connection, and I hope it stays the same. The moment that we've been waiting for is getting closer. Sooner or later, you will move onto your new location and we'll have other ways to execute our meetings. We have to keep in mind that things won't always go our way, but we must never stop trying. Happy 38th Month of Love & Friendship! Always remember that I'm here for you and remain loving you.
+        </p>
+        
+        <label for="option-toggle">
+          <input type="checkbox" id="option-toggle"><ion-icon class="diamond" name="diamond"></ion-icon>
+        </label>
+      </div>
+
+      <div class="swiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img src="https://github.com/StygianEx/monthlyIndex/blob/main/images/38th/20230129_100201.jpg?raw=true" />
+            <!-- <div class="cost">from $230 per group</div> -->
+            <div class="overlay">
+              <h1>Calendula</h1>
+              <p>
+                Also known as pot marigolds, calendulas are bright, daisy-like flowers that bloom in shades of golden orange and sunshine yellow.
+              </p>
+              <div class="ratings">
+                <div class="stars">
+                  <ion-icon class="heart" name="heart"></ion-icon>
+                  <ion-icon class="heart" name="heart"></ion-icon>
+                  <ion-icon class="heart" name="heart"></ion-icon>
+                </div>
+                <!-- <span>138 reviews</span> -->
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://github.com/StygianEx/monthlyIndex/blob/main/images/38th/20230202_073811.jpg?raw=true" />
+            <!-- <div class="cost">from $380 per group</div> -->
+            <div class="overlay">
+              <h1>Yellow Bell</h1>
+              <p>
+                In the Philippines, the "yellow bell flower" typically refers to a flowering plant known scientifically as Tecoma stans.
+              </p>
+              <div class="ratings">
+                <div class="stars">
+                  <ion-icon class="heart" name="heart"></ion-icon>
+                  <ion-icon class="heart" name="heart"></ion-icon>
+                  <ion-icon class="heart" name="heart"></ion-icon>
+                </div>
+                <!-- <span>307 reviews</span> -->
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://github.com/StygianEx/monthlyIndex/blob/main/images/38th/20230202_073829.jpg?raw=true" />
+            <!-- <div class="cost dark-text">from $99 per adult</div> -->
+            <div class="overlay">
+              <h1>Viola</h1>
+              <p>
+                Viola flowers are small flowers that resemble pansies, but have various colors and they belong to the Viola genus, which contains over 500 species.
+              </p>
+              <div class="ratings">
+                <div class="stars">
+                  <ion-icon class="heart" name="heart"></ion-icon>
+                  <ion-icon class="heart" name="heart"></ion-icon>
+                  <ion-icon class="heart" name="heart"></ion-icon>
+                </div>
+                <!-- <span>1152 reviews</span> -->
+              </div>
+            </div>
+          </div>
+          <div class="swiper-slide">
+            <img src="https://github.com/StygianEx/monthlyIndex/blob/main/images/38th/20230202_073845.jpg?raw=true" />
+            <!-- <div class="cost dark-text">from $117 per adult</div> -->
+            <div class="overlay">
+              <h1>Gumamela</h1>
+              <p>
+                Gumamela is the Filipino name for the Hibiscus flower, specifically referring to Hibiscus rosa-sinensis, which is also known as the Chinese hibiscus or shoe flower. 
+              </p>
+              <div class="ratings">
+                <div class="stars">
+                  <ion-icon class="heart" name="heart"></ion-icon>
+                  <ion-icon class="heart" name="heart"></ion-icon>
+                  <ion-icon class="heart" name="heart"></ion-icon>
+                </div>
+                <!-- <span>619 reviews</span> -->
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </body>
+  <script src='https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js'></script>
+<script src='https://cdn.jsdelivr.net/npm/tsparticles@1.26.0/dist/tsparticles.min.js'></script>
+<script src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js'></script>
+<script src='https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js'></script>
+      <script id="rendered-js" >
+var swiper = new Swiper(".swiper", {
+  effect: "cube",
+  grabCursor: true,
+  loop: true,
+  speed: 1000,
+  cubeEffect: {
+    shadow: false,
+    slideShadows: true,
+    shadowOffset: 10,
+    shadowScale: 0.94 },
+
+  autoplay: {
+    delay: 2600,
+    pauseOnMouseEnter: true } });
+
+
+
+tsParticles.load("tsparticles", {
+  fpsLimit: 60,
+  backgroundMode: {
+    enable: true,
+    zIndex: -1 },
+
+  particles: {
+    number: {
+      value: 30,
+      density: {
+        enable: true,
+        area: 800 } },
+
+
+    color: {
+      value: [
+      "#3998D0",
+      "#2EB6AF",
+      "#A9BD33",
+      "#FEC73B",
+      "#F89930",
+      "#F45623",
+      "#D62E32"] },
+
+
+    destroy: {
+      mode: "split",
+      split: {
+        count: 1,
+        factor: {
+          value: 5,
+          random: {
+            enable: true,
+            minimumValue: 4 } },
+
+
+        rate: {
+          value: 10,
+          random: {
+            enable: true,
+            minimumValue: 5 } },
+
+
+        particles: {
+          collisions: {
+            enable: false },
+
+          destroy: {
+            mode: "none" },
+
+          life: {
+            count: 1,
+            duration: {
+              value: 1 } } } } },
+
+
+
+
+
+    shape: {
+      type: "circle",
+      stroke: {
+        width: 0,
+        color: "#000000" },
+
+      polygon: {
+        sides: 5 } },
+
+
+    opacity: {
+      value: 1,
+      random: false,
+      animation: {
+        enable: false,
+        speed: 1,
+        minimumValue: 0.1,
+        sync: false } },
+
+
+    size: {
+      value: 8,
+      random: {
+        enable: true,
+        minimumValue: 4 },
+
+      animation: {
+        enable: false,
+        speed: 40,
+        minimumValue: 0.1,
+        sync: false } },
+
+
+    collisions: {
+      enable: true,
+      mode: "destroy" },
+
+    move: {
+      enable: true,
+      speed: 7,
+      direction: "none",
+      random: false,
+      straight: false,
+      out_mode: "out",
+      attract: {
+        enable: false,
+        rotateX: 600,
+        rotateY: 1200 } } },
+
+
+
+  detectRetina: true });
+//# sourceURL=pen.js
+    </script>
+
+  
+</body>
+
+</html>
