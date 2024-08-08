@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>39th</title>
+    <link rel="icon" href="https://www.svgrepo.com/show/513311/heart.svg" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400..700&family=Quicksand:wght@300..700&display=swap");
+
+      ::-webkit-scrollbar {
+        width: 0; /* Remove scrollbar space */
+        background: transparent; /* Optional: just make scrollbar invisible */
+      }
+
+      *,
+      *:before,
+      *:after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Quicksand", sans-serif;
+      }
+
+      body {
+        background-color: #000000;
+        /* background: linear-gradient(145deg, #55566a 0%, #131318 76%); */
+      }
+
+      main {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr;
+        place-items: center;
+        min-height: 100vh;
+      }
+
+      /* Content */
+
+      .content {
+        padding-left: 120px;
+        color: #c7c7c7c9;
+      }
+
+      .content h1 {
+        /* font-family: "Dancing Script", cursive; */
+        font-size: clamp(2.5rem, 4vw, 6rem);
+        font-weight: 700;
+        background: -webkit-linear-gradient(0deg, #ffffff, #000000);
+        background-clip: text;
+        -webkit-background-clip: text;
+        margin-bottom: 30px;
+      }
+
+      .content p {
+        font-size: clamp(0.9rem, 4vw, 1.2rem);
+        padding-right: 100px;
+        text-align: justify;
+        margin-bottom: 50px;
+      }
+
+      /* Stacked Cards */
+
+      .stack {
+        position: relative;
+      }
+
+      .card {
+        position: absolute;
+        transform: translate(-50%, -50%);
+        top: 50%;
+        left: 50%;
+        width: 350px;
+        height: 500px;
+        border-radius: 2rem;
+        box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.25),
+          0 15px 20px 0 rgba(0, 0, 0, 0.125);
+        transition: transform 0.6s;
+        user-select: none;
+      }
+
+      .card img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        border-radius: inherit;
+        object-fit: cover;
+      }
+
+      .card:nth-last-child(n + 5) {
+        --x: calc(-50% + 90px);
+        transform: translate(var(--x), -50%) scale(0.85);
+        box-shadow: 0 0 1px 1px rgba(0, 0, 0, 0.01);
+      }
+
+      .card:nth-last-child(4) {
+        --x: calc(-50% + 60px);
+        transform: translate(var(--x), -50%) scale(0.9);
+      }
+
+      .card:nth-last-child(3) {
+        --x: calc(-50% + 30px);
+        transform: translate(var(--x), -50%) scale(0.95);
+      }
+
+      .card:nth-last-child(2) {
+        --x: calc(-50%);
+        transform: translate(var(--x), -50%) scale(1);
+      }
+
+      .card:nth-last-child(1) {
+        --x: calc(-50% - 30px);
+        transform: translate(var(--x), -50%) scale(1.05);
+      }
+
+      .card:nth-last-child(1) img {
+        box-shadow: 0 1px 5px 5px rgba(0, 0, 0, 0.5);
+      }
+
+      .swap {
+        animation: swap 1.3s ease-out forwards;
+      }
+
+      @keyframes swap {
+        30% {
+          transform: translate(calc(var(--x) - 250px), -50%) scale(0.85)
+            rotate(-5deg) rotateY(65deg);
+        }
+        100% {
+          transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
+          z-index: -1;
+        }
+      }
+
+      /* Media queries for keyframes */
+
+      @media (max-width: 1200px) {
+        @keyframes swap {
+          30% {
+            transform: translate(calc(var(--x) - 200px), -50%) scale(0.85)
+              rotate(-5deg) rotateY(65deg);
+          }
+
+          100% {
+            transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
+            z-index: -1;
+          }
+        }
+      }
+
+      @media (max-width: 1050px) {
+        @keyframes swap {
+          30% {
+            transform: translate(calc(var(--x) - 150px), -50%) scale(0.85)
+              rotate(-5deg) rotateY(65deg);
+          }
+
+          100% {
+            transform: translate(calc(var(--x) - 30px), -50%) scale(0.5);
+            z-index: -1;
+          }
+        }
+      }
+
+      /* Media queries for other classes */
+
+      @media (max-width: 1200px) {
+        .content {
+          padding-left: 80px;
+        }
+
+        .content p {
+          padding-right: 40px;
+        }
+
+        .card {
+          width: 250px;
+          height: 380px;
+        }
+      }
+
+      @media (max-width: 1050px) {
+        .content {
+          padding-left: 60px;
+        }
+
+        .content p {
+          line-height: 1.5;
+        }
+
+        .card {
+          width: 220px;
+          height: 350px;
+        }
+      }
+
+      @media (max-width: 990px) {
+        .content p {
+          padding-right: 0;
+        }
+
+        .card {
+          width: 200px;
+          height: 300px;
+        }
+      }
+
+      @media (max-width: 950px) {
+        main {
+          grid-template-columns: 1fr;
+          grid-template-rows: 4fr 3fr;
+          grid-template-areas:
+            "stacked"
+            "content";
+        }
+
+        .content {
+          grid-area: content;
+          text-align: center;
+          padding: 0 90px;
+        }
+
+        .btn {
+          margin-bottom: 30px;
+        }
+
+        .stack {
+          grid-area: stacked;
+        }
+      }
+
+      @media (max-width: 650px) {
+        main {
+          grid-template-rows: 1fr 1fr;
+        }
+
+        .content {
+          padding: 0 50px;
+        }
+
+        .content h1 {
+          padding-left: 0;
+        }
+
+        .btn {
+          padding: 8px 16px;
+        }
+
+        .card {
+          width: 180px;
+          height: 260px;
+        }
+      }
+    </style>
+
+    <script>
+      window.console = window.console || function (t) {};
+    </script>
+  </head>
+
+  <body translate="no">
+    <body>
+      <main>
+        <div class="content">
+          <h1>39th</h1>
+          <p>
+            It's been a while since the last time we met, I know that we miss
+            each other so much. However, we have to be patient for whatever
+            comes next. I know that there's still so much more ahead of us, and
+            that we must continue to cherish every moment. Your new journey has
+            already begun, you're a college student now. I'm here to say that
+            you don't have to give in to any pressure, if you've encountered
+            some kind of problem. I'll be here to help you out, just don't
+            hesitate to say the word. We've been through tough times, but it
+            will be much tougher moving forward. Let's raise our chin up and get
+            along with the journey. I love you so much.
+          </p>
+        </div>
+
+        <div class="stack">
+          <div class="card">
+            <img
+              src="https://images.unsplash.com/photo-1519810755548-39cd217da494?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OHx8Z2FsYXh5fGVufDB8fDB8fHww"
+              alt=""
+            />
+          </div>
+          <div class="card">
+            <img
+              src="https://plus.unsplash.com/premium_photo-1661962607720-d23f056f56e6?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8OXx8Z2FsYXh5fGVufDB8fDB8fHww"
+              alt=""
+            />
+          </div>
+          <div class="card">
+            <img
+              src="https://images.unsplash.com/photo-1531333377070-c6575ba98c97?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fGdhbGF4eXxlbnwwfHwwfHx8MA%3D%3D"
+              alt=""
+            />
+          </div>
+          <div class="card">
+            <img
+              src="https://images.unsplash.com/photo-1509515837298-2c67a3933321?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDJ8fHxlbnwwfHx8fHw%3D"
+              alt=""
+            />
+          </div>
+          <div class="card">
+            <img
+              src="https://images.unsplash.com/uploads/14116941824817ba1f28e/78c8dff1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDV8fHxlbnwwfHx8fHw%3D"
+              alt=""
+            />
+          </div>
+          <div class="card">
+            <img
+              src="https://images.unsplash.com/photo-1515825838458-f2a94b20105a?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDEwfHx8ZW58MHx8fHx8"
+              alt=""
+            />
+          </div>
+        </div>
+      </main>
+    </body>
+
+    <script id="rendered-js">
+      const stack = document.querySelector(".stack");
+      const cards = Array.from(stack.children)
+        .reverse()
+        .filter((child) => child.classList.contains("card"));
+
+      cards.forEach((card) => stack.appendChild(card));
+
+      function moveCard() {
+        const lastCard = stack.lastElementChild;
+        if (lastCard.classList.contains("card")) {
+          lastCard.classList.add("swap");
+
+          setTimeout(() => {
+            lastCard.classList.remove("swap");
+            stack.insertBefore(lastCard, stack.firstElementChild);
+          }, 1200);
+        }
+      }
+
+      let autoplayInterval = setInterval(moveCard, 4000);
+
+      stack.addEventListener("click", function (e) {
+        const card = e.target.closest(".card");
+        if (card && card === stack.lastElementChild) {
+          card.classList.add("swap");
+
+          setTimeout(() => {
+            card.classList.remove("swap");
+            stack.insertBefore(card, stack.firstElementChild);
+          }, 1200);
+        }
+      });
+      //# sourceURL=pen.js
+    </script>
+  </body>
+</html>
