@@ -1,0 +1,257 @@
+
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  
+  <title>Monthly Index (Old Version)</title>
+  <link rel="icon" href="https://www.svgrepo.com/show/513279/calendar.svg">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans:300" rel="stylesheet">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+  <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Share+Tech+Mono'>
+
+  
+  
+<style>
+::-webkit-scrollbar {
+    width: 0;  /* Remove scrollbar space */
+    background: transparent;  /* Optional: just make scrollbar invisible */
+}
+
+.fill:hover,
+.fill:focus {
+  box-shadow: inset 0 0 0 2em var(--hover);
+}
+
+.pulse:hover,
+.pulse:focus {
+  -webkit-animation: pulse 1s;
+          animation: pulse 1s;
+  box-shadow: 0 0 0 2em transparent;
+}
+
+@-webkit-keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 var(--hover);
+  }
+}
+.close:hover,
+.close:focus {
+  box-shadow: inset -3.5em 0 0 0 var(--hover), inset 3.5em 0 0 0 var(--hover);
+}
+
+.raise:hover,
+.raise:focus {
+  box-shadow: 0 0.5em 0.5em -0.4em var(--hover);
+  transform: translateY(-0.25em);
+}
+
+.up:hover,
+.up:focus {
+  box-shadow: inset 0 -3.25em 0 0 var(--hover);
+}
+
+.slide:hover,
+.slide:focus {
+  box-shadow: inset 6.5em 0 0 0 var(--hover);
+}
+
+.offset {
+  box-shadow: 0.3em 0.3em 0 0 var(--color), inset 0.3em 0.3em 0 0 var(--color);
+}
+.offset:hover, .offset:focus {
+  box-shadow: 0 0 0 0 var(--hover), inset 6em 3.5em 0 0 var(--hover);
+}
+
+.fill {
+  --color: #a972cb;
+  --hover: #cb72aa;
+}
+
+.pulse {
+  --color: #ef6eae;
+  --hover: #ef8f6e;
+}
+
+.close {
+  --color: #ff7f82;
+  --hover: #ffdc7f;
+}
+
+.raise {
+  --color: #ffa260;
+  --hover: #e5ff60;
+}
+
+.up {
+  --color: #e4cb58;
+  --hover: #94e458;
+}
+
+.slide {
+  --color: #8fc866;
+  --hover: #66c887;
+}
+
+.offset {
+  --color: #19bc8b;
+  --hover: #1973bc;
+}
+
+button {
+  color: var(--color);
+  transition: 0.25s;
+}
+button:hover, button:focus {
+  border-color: var(--hover);
+  color: #fff;
+}
+
+body {
+  color: #fff;
+  background: #000000;
+  font: 400 1em "Fira Sans", sans-serif;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+  min-height: 100vh;
+  display: flex;
+}
+
+button {
+  background: none;
+  border: 2px solid;
+  font: inherit;
+  line-height: 1;
+  margin: 0.5em;
+  padding: 1em 2em;
+}
+
+h1 {
+  font-weight: 500;
+}
+
+code {
+  color: 	#0eff00;
+  font: inherit;
+}
+
+/* DIGITAL clock style */
+#clock {
+  font-family: "Share Tech Mono", monospace;
+  color: #ffffff;
+  text-shadow: 0 0 20px #0aafe6, 0 0 20px rgba(10, 175, 230, 0);
+}
+
+#clock .time {
+  letter-spacing: 0.05em;
+  font-size: 80px;
+  margin: 0 auto;
+}
+
+#clock .date {
+  letter-spacing: 0.1em;
+  font-size: 24px;
+  margin: 0 auto;
+}
+
+#clock .text {
+  letter-spacing: 0.1em;
+  font-size: 18px;
+  margin: 0 auto;
+}
+/* DIGITAL clock style */
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">
+  <div class="buttons">
+    <div id="clock">
+      <p class="date">{{ date }}</p>
+      <p class="time">{{ time }}</p>
+      <p class="text">Time is what we want most, but what we use worst.</p>
+  </div>
+  <h1>Monthly <code>Index</code></h1>
+  <button id="001" class="offset" onclick="window.open('file/myLove.html')">001</button>
+  <button id="11th" class="fill" onclick="window.open('file/11th.html')">11th</button>
+  <button id="12th" class="pulse" onclick="window.open('file/12th.html')">12th</button>
+  <button id="13th" class="close" onclick="window.open('file/13th.html')">13th</button>
+  <button id="14th" class="raise" onclick="window.open('file/14th.html')">14th</button>
+  <button id="15th" class="up" onclick="window.open('file/15th.html')">15th</button>
+  <button id="16th" class="slide" onclick="window.open('file/16th.html')">16th</button>
+  <button id="17th" class="offset" onclick="window.open('file/17th.html')">17th</button>
+  <button id="18th" class="fill" onclick="window.open('file/18th.html')">18th</button>
+  <button id="19th" class="pulse" onclick="window.open('file/19th.html')">19th</button>
+  <button id="20th" class="close" onclick="window.open('file/20th.html')">20th</button>
+  <button id="21st" class="raise" onclick="window.open('file/21st.html')">21st</button>
+  <button id="22nd" class="up" onclick="window.open('file/22nd.html')">22nd</button>
+  <button id="23rd" class="slide" onclick="window.open('file/23rd.html')">23rd</button>
+  <button id="24th" class="offset" onclick="window.open('file/24th.html')">24th</button>
+  <button id="25th" class="fill" onclick="window.open('file/25th.html')">25th</button>
+  <button id="26th" class="pulse" onclick="window.open('file/26th.html')">26th</button>
+  <!-- <button id="27th" class="close">27th</button>
+  <button id="28th" class="raise">28th</button>
+  <button id="29th" class="up">29th</button>
+  <button id="30th" class="slide">30th</button>
+  <button id="31st" class="offset">31st</button> -->
+</div>
+  
+  <!-- <script type="text/javascript">
+    document.getElementById("11th").onclick = function (){
+      window.open = "http://localhost/projects/11th/index.html";
+    };
+  </script> -->
+  
+  <!-- monthly index link = "http://192.168.1.7:5500/combined.html" -->
+
+  <!-- DIGITAL clock script -->
+  <script src="https://cpwebassets.codepen.io/assets/common/stopExecutionOnTimeout-2c7831bb44f98c1391d6a4ffda0e1fd302503391ca806e7fcc7b9b87197aec26.js"></script>
+
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/vue/2.3.4/vue.min.js'></script>
+      <script id="rendered-js" >
+var clock = new Vue({
+  el: '#clock',
+  data: {
+    time: '',
+    date: '' } });
+
+
+
+var week = ['SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY'];
+var timerID = setInterval(updateTime, 1000);
+updateTime();
+function updateTime() {
+  var cd = new Date();
+  clock.time = zeroPadding(cd.getHours(), 2) + ':' + zeroPadding(cd.getMinutes(), 2) + ':' + zeroPadding(cd.getSeconds(), 2);
+  clock.date = zeroPadding(cd.getFullYear(), 4) + '-' + zeroPadding(cd.getMonth() + 1, 2) + '-' + zeroPadding(cd.getDate(), 2) + ' ' + week[cd.getDay()];
+};
+
+function zeroPadding(num, digit) {
+  var zero = '';
+  for (var i = 0; i < digit; i++) {
+    zero += '0';
+  }
+  return (zero + num).slice(-digit);
+}
+//# sourceURL=pen.js
+    </script>
+  <!-- DIGITAL clock script -->
+</body>
+
+</html>
