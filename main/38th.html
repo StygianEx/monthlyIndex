@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>38th</title>
+    <link rel="icon" href="https://www.svgrepo.com/show/513311/heart.svg" />
+
+    <style>
+    @import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Baskervville+SC&display=swap');
+
+      ::-webkit-scrollbar {
+          width: 0;  /* Remove scrollbar space */
+          background: transparent;  /* Optional: just make scrollbar invisible */
+      }
+
+      *,
+      *::before,
+      *::after {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #000000;
+      }
+
+      /* ------ */
+      /* INTRO */
+
+      .intro {
+        display: grid;
+        place-items: center;
+        height: 100vh;
+      }
+
+      .content {
+        padding: 30px;
+      }
+
+      .message {
+        font-size: clamp(1rem, 4vw, 1.1rem);
+        font-weight: 300;
+        line-height: 1.5;
+        color: whitesmoke;
+        text-align: center;
+        max-width: 700px;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* neon style */
+      .text-effect-wrapper,
+      .text {
+        &::before,
+        &::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          pointer-events: none;
+        }
+      }
+
+      .text-effect-wrapper {
+        /* Can be anything light-colored */
+        --spotlight-color: white;
+
+        overflow: hidden;
+        position: relative;
+
+        /* Shimmer animation */
+        &::before {
+          -webkit-animation: shimmer 5s infinite linear;
+                  animation: shimmer 5s infinite linear;
+          background:
+            radial-gradient(circle, var(--spotlight-color), transparent 25%) 0 0 / 25% 25%,
+            radial-gradient(circle, var(--spotlight-color), black 25%) 50% 50% / 12.5% 12.5%;
+          inset-block-start: -100%;
+          inset-inline-start: -100%;
+          mix-blend-mode: color-dodge;
+          z-index: 3;
+        }
+
+        /* Extra filter to boost colors and contrast */
+        &::after {
+          -webkit-backdrop-filter: blur(1px) brightness(90%) contrast(150%);
+                  backdrop-filter: blur(1px) brightness(90%) contrast(150%);
+          z-index: 4;
+        }
+      }
+
+      @-webkit-keyframes shimmer {
+        100% {
+          transform: translate3d(50%, 50%, 0);
+        }
+      }
+
+      @keyframes shimmer {
+        100% {
+          transform: translate3d(50%, 50%, 0);
+        }
+      }
+
+      .text {
+        /* Mask colors */
+        /* Should be black and white */
+        --background-color: black;
+        --text-color: white;
+
+        /* Text color */
+        /* Can be anything */
+        --color-1: red;
+        --color-2: blue;
+
+        Fuzzy white outline text
+        color: transparent;
+        text-shadow:
+          0 0 0.02em var(--background-color),
+          0 0 0.02em var(--text-color),
+          0 0 0.02em var(--text-color),
+          0 0 0.02em var(--text-color);
+
+        Improve contrast of outline
+        &::before {
+          -webkit-backdrop-filter: blur(0.013em) brightness(400%);
+                  backdrop-filter: blur(0.013em) brightness(400%);
+          z-index: 1;
+        }
+
+        Add text color
+        &::after {
+          background: linear-gradient(45deg, var(--color-1), var(--color-2));
+          mix-blend-mode: multiply;
+          z-index: 2;
+        }
+      }
+
+      /* Alternative styling */
+      body:has(#option-toggle:checked) {
+        & .text-effect-wrapper {
+          --spotlight-color: orange;
+
+          &::after {
+            -webkit-backdrop-filter: brightness(90%) contrast(150%);
+                    backdrop-filter: brightness(90%) contrast(150%);
+          }
+        }
+
+        & .text {
+          --angle: 5deg;
+          --color-1: hsl(163, 100%, 51%);
+          --color-2: hsl(295, 88%, 32%);
+          --color-3: hsl(59, 100%, 50%);
+
+          text-shadow:
+            0 0 0.03em var(--background-color),
+            0 0 0.03em var(--text-color);
+
+          &::before {
+            -webkit-backdrop-filter: brightness(150%) contrast(200%);
+                    backdrop-filter: brightness(150%) contrast(200%);
+          }
+
+          &::after {
+            background: linear-gradient(var(--angle), var(--color-1), var(--color-2), var(--color-3));
+            mix-blend-mode: color-dodge;
+          }
+        }
+      }
+
+      /* === Pen styling, ignore */
+
+      h1 {
+        --font-size: clamp(6.25rem, 3.25rem + 15vw, 10.75rem);
+        padding-bottom: 40px;
+        font: 700 var(--font-size)/1 "Baskervville SC", serif;
+        /* text-transform: uppercase; */
+        text-align: center;
+        margin: 0;
+
+        &:empty,
+        &:focus {
+          border: 2px dotted white;
+          min-width: 1ch;
+          outline-offset: 5px;
+        }
+      }
+
+      /* body {
+        background: black;
+        display: flex;
+        min-height: 100vh;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+      } */
+
+      label {
+        background-color: hsl(0, 10%, 20%);
+        border-radius: 5px;
+        color: #fff;
+        padding: .5em .5em .3em .5em ;
+
+        position: fixed;
+        bottom: 1rem;
+        right: 1rem;
+        z-index: 1000;
+
+        &:has(:checked) {
+          background-color: hsl(120, 5%, 15%);
+        }
+      }
+
+      input {
+        position: absolute;
+        opacity: 0;
+      }
+      /* neon style */
+    </style>
+
+    <script>
+      window.console = window.console || function (t) {};
+    </script>
+  </head>
+
+  <body translate="no">
+    <body>
+      <section class="intro">
+        <div class="content">
+          <div class="text-effect-wrapper">
+            <h1 class="text">38th</h1>
+          </div>
+          <p class="message">
+            It's fascinating to me how far we've come. If our relationship were
+            a mere dream, it would be so good to be true. Isn't that right? But
+            we're making things happen, and we're taking the right action to
+            make our relationship better. We are inspired by our deep
+            connection, and I hope it stays the same. The moment that we've been
+            waiting for is getting closer. Sooner or later, you will move onto
+            your new location and we'll have other ways to execute our meetings.
+            We have to keep in mind that things won't always go our way, but we
+            must never stop trying. Happy 38th Month of Love & Friendship!
+            Always remember that I'm here for you and remain loving you.
+          </p>
+        </div>
+        <label for="option-toggle">
+          <input type="checkbox" id="option-toggle" /><ion-icon class="diamond" name="diamond"></ion-icon>
+        </label>
+      </section>
+    </body>
+    <script src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  </body>
+</html>
