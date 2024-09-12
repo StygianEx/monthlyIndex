@@ -1,0 +1,446 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>40th</title>
+<link rel="icon" href="https://www.svgrepo.com/show/513311/heart.svg" />
+
+<link rel="canonical" href="https://codepen.io/TheMOZZARELLA/pen/bGJbPxE">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Della+Respira&family=Golos+Text:wght@400..900&display=swap" rel="stylesheet">
+  
+<style>
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  width: 100vw;
+  min-height: 100vh;
+  background-color: black;
+  font: normal normal 400 12pt / 2cap "Golos Text", sans-serif;
+  color: white;
+  overflow-x: hidden;
+}
+
+article {
+  width: 100%;
+  max-width: 1265px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  margin: 50px 0;
+}
+
+figure {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: space-between;
+  margin: 0 0 30px 0;
+}
+
+figure figcaption {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: space-between;
+}
+
+figure figcaption h1 {
+  font: normal normal 400 240% / 1.5cap "Della Respira", serif;
+  padding: 0 0 10px 0;
+  margin: 0 0 20px 0;
+  border-bottom: 1px solid #333;
+  text-wrap: balance;
+}
+
+span {
+    font-family: "Della Respira", serif;
+}
+
+figure figcaption p {
+  color: #bbb;
+  padding-left: 30px;
+  margin: 0;
+  border-left: 10px solid;
+  border-image: repeating-linear-gradient(
+      43deg,
+      white,
+      white 4px,
+      transparent 5px,
+      transparent 9px,
+      white 10px
+    )
+    10;
+  text-wrap: pretty;
+}
+
+figure figcaption p span:last-of-type {
+  display: none;
+}
+
+button {
+  font: normal normal 400 12pt / 2cap "Golos Text", sans-serif;
+  width: 200px;
+  height: 50px;
+  background-color: transparent;
+  border: 1px solid #666;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+button::after {
+  position: absolute;
+  right: 100%;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #ccc;
+  content: "";
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+button:hover::after {
+  right: 0;
+  transition: all 0.3s ease;
+}
+
+button input {
+  display: none;
+}
+
+button label {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover label {
+  color: black;
+  transition: all 0.3s ease;
+}
+
+button label span {
+  display: none;
+}
+
+button:not(:has(input:checked)) label span:first-of-type {
+  display: initial;
+}
+
+button:has(input:checked) label span:last-of-type {
+  display: initial;
+}
+
+section {
+  width: 100%;
+  height: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  justify-content: stretch;
+  border-right: 1px solid #555;
+  border-bottom: 1px solid #555;
+  border-left: 1px solid #555;
+  transition: all 0.5s ease;
+  position: relative;
+}
+
+section::before {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background-image: linear-gradient(
+    90deg,
+    #ff00bb,
+    #ff00b6,
+    #ff00a8,
+    #ff0b93,
+    #ff347a,
+    #ff585f,
+    #ff7a44,
+    #ff9829,
+    #ffb20c,
+    #ffc500,
+    #ffd100,
+    #ffd500
+  );
+  content: "";
+  z-index: 2;
+  transition: all 1.2s ease;
+}
+
+figure:has(button input:checked) ~ section::before {
+  width: 0px;
+  transition: all 1.2s ease;
+}
+
+div {
+  flex-grow: 1;
+  opacity: 0;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  transition: all 0.5s ease;
+}
+
+figure:has(button input:checked) ~ section {
+  height: 400px;
+  transition: all 0.5s ease;
+}
+
+figure:has(button input:checked) ~ section div,
+figure:has(button input:checked)
+  ~ section
+  div
+  + div
+  + div
+  + div
+  + div
+  + div
+  + div
+  + div
+  + div
+  + div
+  + div {
+  opacity: 1;
+  flex-grow: 2;
+  transition-delay: 0.15s;
+}
+
+figure:has(button input:checked) ~ section div + div,
+figure:has(button input:checked)
+  ~ section
+  div
+  + div
+  + div
+  + div
+  + div
+  + div
+  + div
+  + div
+  + div
+  + div {
+  opacity: 1;
+  transition-delay: 0.3s;
+  flex-grow: 3;
+}
+
+figure:has(button input:checked) ~ section div + div + div,
+figure:has(button input:checked)
+  ~ section
+  div
+  + div
+  + div
+  + div
+  + div
+  + div
+  + div
+  + div
+  + div {
+  opacity: 1;
+  transition-delay: 0.45s;
+  flex-grow: 4;
+}
+
+figure:has(button input:checked) ~ section div + div + div + div,
+figure:has(button input:checked)
+  ~ section
+  div
+  + div
+  + div
+  + div
+  + div
+  + div
+  + div
+  + div {
+  opacity: 1;
+  transition-delay: 0.6s;
+  flex-grow: 5;
+}
+
+figure:has(button input:checked) ~ section div + div + div + div + div,
+figure:has(button input:checked)
+  ~ section
+  div
+  + div
+  + div
+  + div
+  + div
+  + div
+  + div {
+  opacity: 1;
+  transition-delay: 0.75s;
+  flex-grow: 6;
+}
+
+figure:has(button input:checked) ~ section div + div + div + div + div + div {
+  opacity: 1;
+  transition-delay: 0.9s;
+  flex-grow: 7;
+}
+
+section div:hover {
+  flex-grow: 2 !important;
+}
+
+section:has(div:hover) div:not(:hover) {
+  flex-grow: 1 !important;
+}
+
+section:has(div:hover) div {
+  transition-delay: 0s !important;
+}
+
+figure:has(button input:checked) ~ section div {
+  animation: pointerFix 1.7s linear 0s 1 normal;
+}
+
+@keyframes pointerFix {
+  0% {
+    pointer-events: none;
+  }
+  99% {
+    pointer-events: none;
+  }
+  100% {
+    pointer-events: initial;
+  }
+}
+
+/* Change Gallery Images */
+
+section div:first-of-type {
+  background-image: url("https://images.unsplash.com/photo-1494516192674-b82b5f1e61dc?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D");
+}
+
+section div + div {
+  background-image: url("https://images.unsplash.com/photo-1446071103084-c257b5f70672?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDF8fHxlbnwwfHx8fHw%3D");
+}
+
+section div + div + div {
+  background-image: url("https://images.unsplash.com/photo-1566377869454-20ae52bdf7f9?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDZ8fHxlbnwwfHx8fHw%3D");
+}
+
+section div + div + div + div {
+  background-image: url("https://images.unsplash.com/photo-1525663018617-37753d540108?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE0fHx8ZW58MHx8fHx8");
+}
+
+section div + div + div + div + div {
+  background-image: url("https://images.unsplash.com/photo-1483793435732-7047c6f91194?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1yZWxhdGVkfDE1fHx8ZW58MHx8fHx8");
+}
+
+@media (max-width: 900px) {
+  figure {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  figure figcaption {
+    margin-bottom: 20px;
+  }
+  figure figcaption p span:first-of-type {
+    display: none;
+  }
+  figure figcaption p span:last-of-type {
+    display: initial;
+  }
+  button {
+    width: 100%;
+    max-width: 600px;
+  }
+}
+
+@media (max-width: 700px) {
+  figure figcaption {
+    max-width: unset;
+  }
+  button {
+    max-width: unset;
+  }
+}
+
+@media (max-width: 600px) {
+  section {
+    flex-direction: column;
+    /* height: 500px; */
+  }
+  figure:has(button input:checked) ~ section {
+    height: 1000px;
+  }
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+</head>
+
+<body translate="no">
+  <article>
+  <figure>
+    <figcaption>
+      <h1>
+        40th Month of Love & Friendship
+      </h1>
+      <p>
+        40th month and counting! What a long journey it has been! I guess we're on the right track. I appreciate how consistent we are, and it's magical how much we inspire each other's lives. I'm grateful for every second I spent with you because there's so much meaning to everything.
+      </p>
+    </figcaption>
+    </figcaption>
+    <button>
+      <label for="init">
+        <span>I love you</span>
+        <span>I miss you</span>
+      </label>
+      <input type="checkbox" name="init" id="init">
+    </button>
+  </figure>
+  <section>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+    <div>
+    </div>
+  </section>
+</article>
+  
+</body>
+
+</html>
