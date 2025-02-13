@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />  
+
+  <title>45th</title>
+  <link rel="icon" href="https://www.svgrepo.com/show/513311/heart.svg" />
+  
+<style>
+::-webkit-scrollbar {
+  width: 0; /* Remove scrollbar space */
+  background: transparent; /* Optional: just make scrollbar invisible */
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+  margin: 0;
+  background: #fafafa;
+}
+
+.container {
+  background: white;
+  border-radius: 24px;
+  padding: 24px;
+  width: 400px;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px;
+  view-transition-name: container;
+
+  .list-item:nth-child(1) {
+    margin-bottom: -21.5%;
+  }
+
+  .list-item:nth-child(2) {
+    margin-bottom: -21.5%;
+    transform: scale(0.95);
+  }
+
+  .list-item:nth-child(3) {
+    transform: scale(0.9);
+  }
+
+  .hide {
+    display: none;
+  }
+
+  &.expanded {
+    .list-item:nth-child(1),
+    .list-item:nth-child(2) {
+      margin-bottom: 0;
+      transform: scale(1);
+    }
+
+    .list-item:nth-child(3) {
+      transform: scale(1);
+    }
+
+    .show {
+      display: none;
+    }
+
+    .hide {
+      display: block;
+    }
+
+    .show-hide-btn svg {
+      transform: rotate(180deg);
+      transition: transform 0.6s;
+    }
+  }
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  view-transition-name: list;
+}
+
+.list-item {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 16px;
+  background: white;
+  border-radius: 16px;
+  border: 1px solid #e4e4e7;
+  cursor: pointer;
+  box-shadow: rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0) 0px 0px 0px 0px, rgba(0, 0, 0, 0.1) 0px 4px 6px -1px, rgba(0, 0, 0, 0.1) 0px 2px 4px -2px;
+}
+
+.list-item:nth-child(1) {
+  view-transition-name: list-item-1;
+  z-index: 2;
+}
+
+.list-item:nth-child(2) {
+  view-transition-name: list-item-2;
+  z-index: 1;
+}
+
+.list-item:nth-child(3) {
+  view-transition-name: list-item-3;
+  z-index: 0;
+}
+
+.icon {
+  width: 48px;
+  height: 48px;
+  background: #18181b;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+}
+
+.icon svg {
+  width: 24px;
+  height: 24px;
+  color: white;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  flex: 1;
+}
+
+.title {
+  font-size: 16px;
+  font-weight: 500;
+  color: #18181b;
+}
+
+.subtitle {
+  font-size: 14px;
+  color: #71717a;
+  text-align: justify;
+}
+
+.date {
+  font-size: 14px;
+  color: #71717a;
+  text-align: right;
+}
+
+.show-hide-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 24px;
+  margin: 8px auto 0 auto;
+  width: 140px;
+  background: none;
+  color: #71717a;
+  border: 1px solid #e4e4e7;
+  border-radius: 24px;
+  font-weight: 500;
+  font-size: 14px;
+  cursor: pointer;
+  view-transition-name: show-hide-btn;
+
+  span {
+    display: inline-block;
+    text-align: center;
+    width: fit-content;
+  }
+
+  svg {
+    transition: transform 0.3s;
+    view-transition-name: show-hide-btn-icon;
+  }
+}
+
+.container.expanded .show-hide-btn svg {
+  transform: rotate(-180deg);
+}
+
+.show,
+.hide {
+  width: fit-content;
+  view-transition-name: button-label;
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
+  }
+  10% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+::view-transition-group(*) {
+  animation-duration: 0.6s;
+  animation-timing-function: linear(0, 0.402 7.4%, 0.711 15.3%, 0.929 23.7%, 1.008 28.2%, 1.067 33%, 1.099 36.9%, 1.12 41%, 1.13 45.4%, 1.13 50.1%, 1.111 58.5%, 1.019 83.2%, 1.004 91.3%, 1);
+}
+
+::view-transition-old(*),
+::view-transition-new(*) {
+  height: 100%;
+}
+
+::view-transition-old(button-label),
+::view-transition-new(button-label) {
+  width: fit-content; 
+}
+
+::view-transition-old(button-label) {
+  animation-name: fade-out;
+  animation-duration: 0.6s;
+}
+</style>
+
+  <script>
+  window.console = window.console || function(t) {};
+</script>
+
+  
+  
+</head>
+
+<body translate="no">
+  <div class="container">
+  <div class="list">
+    <div class="list-item">
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M8.625 9.75a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H8.25m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0H12m4.125 0a.375.375 0 1 1-.75 0 .375.375 0 0 1 .75 0Zm0 0h-.375m-13.5 3.01c0 1.6 1.123 2.994 2.707 3.227 1.087.16 2.185.283 3.293.369V21l4.184-4.183a1.14 1.14 0 0 1 .778-.332 48.294 48.294 0 0 0 5.83-.498c1.585-.233 2.708-1.626 2.708-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0 0 12 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018Z" />
+        </svg>
+      </div>
+      <div class="content">
+        <div class="title">Message</div>
+        <div class="subtitle">Our 45th month is kind of different from the rest because we almost gave in to our emotions last time. But gladly, we talked things over and were able to fix the problem, and here we are now, still staying strong. Let's stay consistent, okay? We'll be having fun just like the last time. I cherish you.</div>
+      </div>
+      <div class="date">02/12/2025</div>
+    </div>
+
+    <div class="list-item">
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M21 8.25c0-2.485-2.099-4.5-4.688-4.5-1.935 0-3.597 1.126-4.312 2.733-.715-1.607-2.377-2.733-4.313-2.733C5.1 3.75 3 5.765 3 8.25c0 7.22 9 12 9 12s9-4.78 9-12Z" />
+        </svg>          
+      </div>
+      <div class="content">
+        <div class="title">Valentine's</div>
+        <div class="subtitle">Isn't exciting to spend some time with the person you love? The date we had last time was one of the most fulfilled. We were able to experience new things that we hadn't tried before. The meal that we shared was so good. I thank you for introducing your favourites to me. There's more to come so let's keep moving forward.</div>
+      </div>
+      <div class="date">02/14/2025</div>
+    </div>
+
+    <div class="list-item">
+      <div class="icon">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 12c0-1.232-.046-2.453-.138-3.662a4.006 4.006 0 0 0-3.7-3.7 48.678 48.678 0 0 0-7.324 0 4.006 4.006 0 0 0-3.7 3.7c-.017.22-.032.441-.046.662M19.5 12l3-3m-3 3-3-3m-12 3c0 1.232.046 2.453.138 3.662a4.006 4.006 0 0 0 3.7 3.7 48.656 48.656 0 0 0 7.324 0 4.006 4.006 0 0 0 3.7-3.7c.017-.22.032-.441.046-.662M4.5 12l3 3m-3-3-3 3" />
+        </svg>          
+      </div>
+      <div class="content">
+        <div class="title">Reflection</div>
+        <div class="subtitle">Looking back, there were times that I wish I could've done things a little bit better. But as we move forward, I continue to learn a lot and discover more about us. Let's take our time to talk about things we want to improve. We need a better realization of our expectations. The only constant is change, so we must learn to adapt.</div>
+      </div>
+      <div class="date">2025...</div>
+    </div>
+  </div>
+
+  <button class="show-hide-btn">
+    <span class="show">I love you</span>
+    <span class="hide">I miss you</span>
+    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor">
+      <path d="M4 6l4 4 4-4" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </button>
+</div>
+  
+      <script id="rendered-js" >
+const showHideBtn = document.querySelector('.show-hide-btn');
+const container = document.querySelector('.container');
+
+showHideBtn.addEventListener('click', () => {
+  document.startViewTransition(() => {
+    container.classList.toggle('expanded');
+  });
+});
+//# sourceURL=pen.js
+    </script>
+
+  
+</body>
+
+</html>
