@@ -1,0 +1,601 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>49th</title>
+    <link rel="icon" href="https://www.svgrepo.com/show/513311/heart.svg" />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;700;900&family=Space+Mono:wght@400;700&display=swap");
+
+      ::-webkit-scrollbar {
+        width: 0; /* Remove scrollbar space */
+        background: transparent; /* Optional: just make scrollbar invisible */
+      }
+      
+      :root {
+        --bg-color: #000000;
+        --card-width: 300px;
+        --card-height: 400px;
+        --black: #080808;
+        --white: #fafafa;
+        --grid-color: rgba(0, 0, 0, 0.08);
+        --frame-color: rgba(8, 8, 8, 0.8);
+        --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+        --transition-fast: 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+        background-color: var(--bg-color);
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        font-feature-settings: "salt" 1, "ss01" 1, "ss02" 1;
+        color: var(--black);
+        overflow-x: hidden;
+      }
+
+      .carousel {
+        position: relative;
+        width: 100%;
+        max-width: 1400px;
+        padding: 5vh 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .carousel-track {
+        display: flex;
+        gap: 40px;
+        padding: 40px 0;
+        justify-content: center;
+      }
+
+      .deconstructed-card {
+        position: relative;
+        width: var(--card-width);
+        height: var(--card-height);
+        cursor: pointer;
+        transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        transform-style: preserve-3d;
+        flex-shrink: 0;
+      }
+
+      .card-layer {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        transition: transform var(--transition-slow),
+          opacity var(--transition-slow);
+      }
+
+      .card-frame {
+        z-index: 3;
+        pointer-events: none;
+      }
+
+      .frame-path {
+        fill: none;
+        stroke: var(--frame-color);
+        stroke-width: 1;
+        stroke-dasharray: 1520;
+        stroke-dashoffset: 1520;
+        transition: stroke-dashoffset 1.5s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+
+      .card-background {
+        z-index: 0;
+        background-color: var(--white);
+      }
+
+      .bg-grid {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      .grid-line {
+        position: absolute;
+        background-color: var(--grid-color);
+        transition: transform var(--transition-slow),
+          opacity var(--transition-fast);
+      }
+
+      .grid-line.horizontal {
+        width: 100%;
+        height: 1px;
+        transform: scaleX(0.3);
+        transform-origin: left;
+      }
+
+      .grid-line.vertical {
+        height: 100%;
+        width: 1px;
+        transform: scaleY(0.3);
+        transform-origin: top;
+      }
+
+      .bg-objects {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+      }
+
+      .bg-object {
+        position: absolute;
+        opacity: 0.3;
+        transition: transform var(--transition-slow),
+          opacity var(--transition-slow);
+      }
+
+      .bg-object.circle {
+        width: 100px;
+        height: 100px;
+        border-radius: 50%;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        bottom: 40px;
+        left: -30px;
+        transform: translateY(20px);
+      }
+
+      .bg-object.square {
+        width: 60px;
+        height: 60px;
+        border: 1px solid rgba(0, 0, 0, 0.1);
+        top: 40px;
+        right: 30px;
+        transform: rotate(45deg) translateY(-20px);
+      }
+
+      .bg-object.triangle {
+        width: 0;
+        height: 0;
+        border-left: 40px solid transparent;
+        border-right: 40px solid transparent;
+        border-bottom: 70px solid rgba(0, 0, 0, 0.05);
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.5);
+      }
+
+      .card-content {
+        z-index: 2;
+        padding: 30px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+      }
+
+      .content-fragment {
+        position: relative;
+      }
+
+      .fragment-heading {
+        margin-top: auto;
+        margin-bottom: 1.5rem;
+      }
+
+      .content-text {
+        font-size: 2rem;
+        font-weight: 900;
+        line-height: 1.2;
+        letter-spacing: -0.02em;
+        color: var(--black);
+        transition: transform var(--transition-fast),
+          opacity var(--transition-fast);
+        transform: translateY(10px);
+        opacity: 0.7;
+      }
+
+      .content-subtext {
+        font-size: 0.875rem;
+        font-weight: 500;
+        letter-spacing: 0.05em;
+        margin-top: 1rem;
+        color: var(--black);
+        opacity: 0.5;
+        transform: translateY(10px);
+        transition: transform var(--transition-fast),
+          opacity var(--transition-fast);
+      }
+
+      .fragment-meta {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 2rem;
+      }
+
+      .meta-line {
+        width: 40px;
+        height: 1px;
+        background-color: var(--black);
+        transform: scaleX(0.5);
+        transform-origin: left;
+        transition: transform var(--transition-fast);
+      }
+
+      .meta-text {
+        font-family: "Space Mono", monospace;
+        font-size: 0.75rem;
+        letter-spacing: 0.05em;
+        opacity: 0.6;
+        transform: translateX(-5px);
+        transition: transform var(--transition-fast),
+          opacity var(--transition-fast);
+      }
+
+      .fragment-body {
+        max-width: 85%;
+        margin: 1.5rem 0;
+      }
+
+      .fragment-body .content-text {
+        font-size: 0.9rem;
+        font-weight: 400;
+        line-height: 1.5;
+        letter-spacing: normal;
+        opacity: 0.6;
+      }
+
+      .fragment-cta {
+        margin-top: auto;
+        overflow: visible;
+      }
+
+      .cta-link {
+        text-decoration: none;
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        padding: 8px 0;
+      }
+
+      .cta-box {
+        position: absolute;
+        top: 0;
+        left: -10px;
+        width: calc(100% + 20px);
+        height: 100%;
+        background-color: var(--black);
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform var(--transition-fast);
+      }
+
+      .cta-text {
+        position: relative;
+        font-family: "Space Mono", monospace;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        color: var(--black);
+        transform: translateX(-5px);
+        opacity: 0.7;
+        transition: transform var(--transition-fast),
+          opacity var(--transition-fast), color var(--transition-fast);
+      }
+
+      .align-right {
+        text-align: right;
+      }
+
+      .text-align-right {
+        align-self: flex-end;
+        text-align: right;
+      }
+
+      .text-align-right .meta-line {
+        transform-origin: right;
+      }
+
+      .text-align-right .cta-box {
+        transform-origin: right;
+      }
+
+      .text-align-right .meta-text {
+        transform: translateX(5px);
+      }
+
+      .deconstructed-card:hover .frame-path {
+        stroke-dashoffset: 0;
+      }
+
+      .deconstructed-card:hover .content-text,
+      .deconstructed-card:hover .content-subtext {
+        transform: translateY(0);
+        opacity: 1;
+        transition-delay: 0.05s;
+      }
+
+      .deconstructed-card:hover .fragment-body .content-text {
+        transition-delay: 0.1s;
+        opacity: 1;
+      }
+
+      .deconstructed-card:hover .meta-text {
+        transform: translateX(0);
+        opacity: 1;
+        transition-delay: 0.15s;
+      }
+
+      .deconstructed-card:hover .meta-line {
+        transform: scaleX(1);
+        transition-delay: 0.05s;
+      }
+
+      .deconstructed-card:hover .cta-text {
+        transform: translateX(0);
+        opacity: 1;
+        transition-delay: 0.2s;
+      }
+
+      .deconstructed-card:hover .cta-link:hover .cta-box {
+        transform: scaleX(1);
+      }
+
+      .deconstructed-card:hover .cta-link:hover .cta-text {
+        color: var(--white);
+      }
+
+      .text-card:hover .grid-line.horizontal {
+        transform: scaleX(1);
+      }
+
+      .text-card:hover .grid-line.vertical {
+        transform: scaleY(1);
+      }
+
+      .text-card:hover .bg-object {
+        opacity: 1;
+        transform: translate(0, 0) rotate(0);
+      }
+
+      .text-card:hover .bg-object.square {
+        transform: rotate(45deg) translate(0, 0);
+      }
+
+      .text-card:hover .bg-object.triangle {
+        transform: translate(-50%, -50%) scale(1);
+      }
+
+      .deconstructed-card:hover .grid-line:nth-child(1) {
+        transition-delay: 0.1s;
+      }
+
+      .deconstructed-card:hover .grid-line:nth-child(2) {
+        transition-delay: 0.2s;
+      }
+
+      .deconstructed-card:hover .grid-line:nth-child(3) {
+        transition-delay: 0.3s;
+      }
+
+      .deconstructed-card:hover .grid-line:nth-child(4) {
+        transition-delay: 0.15s;
+      }
+
+      .deconstructed-card:hover .grid-line:nth-child(5) {
+        transition-delay: 0.25s;
+      }
+
+      .percentage-content .meta-line,
+      .egg-content .meta-line {
+        background-color: var(--black);
+      }
+
+      .percentage-content .content-text,
+      .percentage-content .meta-text,
+      .percentage-content .cta-text,
+      .egg-content .content-text,
+      .egg-content .meta-text,
+      .egg-content .cta-text {
+        color: var(--black);
+      }
+
+      .attribution {
+        position: absolute;
+        bottom: 20px;
+        right: 20px;
+        font-size: 12px;
+        opacity: 0.7;
+      }
+
+      .attribution a {
+        color: var(--black);
+        text-decoration: none;
+      }
+
+      @media (max-width: 768px) {
+        :root {
+          --card-width: 280px;
+          --card-height: 380px;
+        }
+
+        .carousel-track {
+          flex-direction: column;
+          align-items: center;
+          gap: 20px;
+        }
+
+        .card-content {
+          padding: 20px;
+        }
+
+        .content-text {
+          font-size: 1.8rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body translate="no">
+    <div class="carousel">
+      <div class="carousel-track">
+        <!-- 49th Monthsary -->
+        <article class="deconstructed-card text-card">
+          <div class="card-layer card-background">
+            <div class="bg-grid">
+              <div class="grid-line horizontal" style="top: 25%"></div>
+              <div class="grid-line horizontal" style="top: 50%"></div>
+              <div class="grid-line horizontal" style="top: 75%"></div>
+              <div class="grid-line vertical" style="left: 33.33%"></div>
+              <div class="grid-line vertical" style="left: 66.66%"></div>
+            </div>
+            <div class="bg-objects">
+              <div class="bg-object circle"></div>
+              <div class="bg-object square"></div>
+              <div class="bg-object triangle"></div>
+            </div>
+          </div>
+          <div class="card-layer card-frame">
+            <svg viewBox="0 0 300 400" preserveAspectRatio="none">
+              <path class="frame-path" d="M 20,20 H 280 V 380 H 20 Z" />
+            </svg>
+          </div>
+          <div class="card-layer card-content percentage-content">
+            <div class="content-fragment fragment-meta text-align-right">
+              <span class="meta-text">49th Monthsary</span>
+              <div class="meta-line"></div>
+            </div>
+            <div class="content-fragment fragment-heading">
+              <h2 class="content-text align-right">LOVE</h2>
+              <h3 class="content-subtext align-right">& FRIENDSHIP</h3>
+            </div>
+            <div class="content-fragment fragment-body text-align-right">
+              <p class="content-text">
+                What a journey we had together. It's been full of adventure and
+                exploration. There's more to come, and we will make it happen.
+              </p>
+            </div>
+            <div class="content-fragment fragment-cta text-align-right">
+              <a href="#" class="cta-link">
+                <div class="cta-box"></div>
+                <span class="cta-text">Cherish Every Moment</span>
+              </a>
+            </div>
+          </div>
+        </article>
+        <!-- 20th Birthday -->
+        <article class="deconstructed-card text-card">
+          <div class="card-layer card-background">
+            <div class="bg-grid">
+              <div class="grid-line horizontal" style="top: 25%"></div>
+              <div class="grid-line horizontal" style="top: 50%"></div>
+              <div class="grid-line horizontal" style="top: 75%"></div>
+              <div class="grid-line vertical" style="left: 33.33%"></div>
+              <div class="grid-line vertical" style="left: 66.66%"></div>
+            </div>
+            <div class="bg-objects">
+              <div class="bg-object circle"></div>
+              <div class="bg-object square"></div>
+              <div class="bg-object triangle"></div>
+            </div>
+          </div>
+          <div class="card-layer card-frame">
+            <svg viewBox="0 0 300 400" preserveAspectRatio="none">
+              <path class="frame-path" d="M 20,20 H 280 V 380 H 20 Z" />
+            </svg>
+          </div>
+          <div class="card-layer card-content egg-content">
+            <div class="content-fragment fragment-meta">
+              <div class="meta-line"></div>
+              <span class="meta-text">20th Birthday</span>
+            </div>
+            <div class="content-fragment fragment-heading">
+              <h2 class="content-text">GROWTH</h2>
+              <h3 class="content-subtext">& EXPERIENCES</h3>
+            </div>
+            <div class="content-fragment fragment-body">
+              <p class="content-text">
+                You continue to grow beautifully. Your aura is vibrant, and it's
+                very pleasing to be around you.
+              </p>
+            </div>
+            <div class="content-fragment fragment-cta">
+              <a href="#" class="cta-link">
+                <div class="cta-box"></div>
+                <span class="cta-text">Grateful For Everything</span>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        const cards = document.querySelectorAll(".deconstructed-card");
+
+        cards.forEach((card) => {
+          card.addEventListener("mousemove", (e) => {
+            const rect = card.getBoundingClientRect();
+            const x = (e.clientX - rect.left) / rect.width;
+            const y = (e.clientY - rect.top) / rect.height;
+            const xDeg = (y - 0.5) * 8;
+            const yDeg = (x - 0.5) * -8;
+            card.style.transform = `perspective(1200px) rotateX(${xDeg}deg) rotateY(${yDeg}deg)`;
+            const layers = card.querySelectorAll(".card-layer");
+            layers.forEach((layer, index) => {
+              const depth = 30 * (index + 1);
+              const translateZ = depth;
+              const offsetX = (x - 0.5) * 10 * (index + 1);
+              const offsetY = (y - 0.5) * 10 * (index + 1);
+              layer.style.transform = `translate3d(${offsetX}px, ${offsetY}px, ${translateZ}px)`;
+            });
+            const bgObjects = card.querySelectorAll(".bg-object");
+            bgObjects.forEach((obj, index) => {
+              const factorX = (index + 1) * 10;
+              const factorY = (index + 1) * 8;
+              const moveX = (x - 0.5) * factorX;
+              const moveY = (y - 0.5) * factorY;
+              if (obj.classList.contains("square")) {
+                obj.style.transform = `rotate(45deg) translate(${moveX}px, ${moveY}px)`;
+              } else if (obj.classList.contains("triangle")) {
+                obj.style.transform = `translate(calc(-50% + ${moveX}px), calc(-50% + ${moveY}px)) scale(1)`;
+              } else {
+                obj.style.transform = `translate(${moveX}px, ${moveY}px)`;
+              }
+            });
+          });
+
+          card.addEventListener("mouseleave", () => {
+            card.style.transform = "";
+            const layers = card.querySelectorAll(".card-layer");
+            layers.forEach((layer) => {
+              layer.style.transform = "";
+            });
+            const bgObjects = card.querySelectorAll(".bg-object");
+            bgObjects.forEach((obj) => {
+              if (obj.classList.contains("square")) {
+                obj.style.transform = "rotate(45deg) translateY(-20px)";
+              } else if (obj.classList.contains("triangle")) {
+                obj.style.transform = "translate(-50%, -50%) scale(0.5)";
+              } else {
+                obj.style.transform = "translateY(20px)";
+              }
+            });
+          });
+        });
+      });
+    </script>
+  </body>
+</html>
