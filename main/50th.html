@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>50th</title>
+    <link rel="icon" href="https://www.svgrepo.com/show/513311/heart.svg" />
+
+    <style>
+      ::-webkit-scrollbar {
+        width: 0; /* Remove scrollbar space */
+        background: transparent; /* Optional: just make scrollbar invisible */
+      }
+
+      :root {
+        --font-serif: "Playfair Display", Georgia, serif;
+        --font-serif-alt: "Cormorant Garamond", Georgia, serif;
+        --font-sans: "Poppins", sans-serif;
+        --color-dark: #1a1a1a;
+        --color-text: #333333;
+        --color-secondary: #666666;
+        --color-accent: #0891b2;
+        --color-accent-hover: #06b6d4;
+        --color-gold: #ca8a04;
+      }
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font-family: var(--font-sans);
+        background-color: #000000;
+        color: var(--color-text);
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1.5rem;
+        line-height: 1.6;
+      }
+
+      .container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2.5rem;
+        justify-content: center;
+        max-width: 1200px;
+      }
+
+      .card {
+        width: 350px;
+        background-color: white;
+        border-radius: 2px;
+        overflow: hidden;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        position: relative;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      .card-photo::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(to right, #06b6d4, #0284c7, #0891b2);
+      }
+
+      .card-photo img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        display: block;
+      }
+
+      .card-content {
+        padding: 2.5rem;
+      }
+
+      .card-category {
+        font-family: var(--font-sans);
+        font-size: 12px;
+        font-weight: 600;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: var(--color-accent);
+        margin-bottom: 0.5rem;
+        background-color: rgba(8, 145, 178, 0.08);
+        display: inline-block;
+        padding: 4px 8px;
+        border-radius: 2px;
+      }
+
+      .card-photo h2 {
+        font-family: var(--font-serif);
+        font-size: 28px;
+        font-weight: 700;
+        line-height: 1.2;
+        color: var(--color-dark);
+        margin-bottom: 1rem;
+        position: relative;
+        padding-bottom: 1rem;
+      }
+
+      .card-photo h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 60px;
+        height: 3px;
+        background: linear-gradient(to right, #0891b2, #0ea5e9);
+      }
+
+      .card-photo p {
+        font-family: var(--font-sans);
+        font-size: 15px;
+        font-weight: 300;
+        line-height: 1.7;
+        color: var(--color-secondary);
+        margin-bottom: 1.5rem;
+      }
+
+      .card-meta {
+        font-family: var(--font-sans);
+        font-size: 13px;
+        color: var(--color-secondary);
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+      }
+
+      .card-meta span {
+        margin-right: 1rem;
+      }
+
+      .read-more {
+        font-family: var(--font-sans);
+        font-size: 20px;
+        font-weight: 500;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--color-accent);
+        text-decoration: none;
+        position: relative;
+        transition: all 0.3s ease;
+        display: inline-block;
+      }
+
+      .read-more::after {
+        content: "";
+        position: absolute;
+        bottom: -3px;
+        left: 0;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(to right, #0891b2, #22d3ee);
+        transform: scaleX(0.3);
+        transform-origin: left;
+        transition: transform 0.3s ease;
+      }
+
+      .read-more:hover {
+        color: var(--color-accent-hover);
+      }
+
+      .read-more:hover::after {
+        transform: scaleX(1);
+      }
+
+      .card-text {
+        padding: 2.5rem;
+        display: flex;
+        flex-direction: column;
+        background-color: var(--color-dark);
+        color: white;
+      }
+
+      .card-text-header {
+        margin-bottom: 2.5rem;
+      }
+
+      .card-text h1 {
+        font-family: var(--font-serif);
+        font-size: 48px;
+        font-weight: 800;
+        line-height: 1;
+        margin-bottom: 0.5rem;
+        color: white;
+        letter-spacing: -0.5px;
+      }
+
+      .card-text h3 {
+        font-family: var(--font-serif-alt);
+        font-size: 20px;
+        font-weight: 300;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.7);
+        line-height: 1.4;
+        margin-bottom: 1.5rem;
+      }
+
+      .card-text p {
+        font-family: var(--font-sans);
+        font-size: 16px;
+        font-weight: 300;
+        line-height: 1.8;
+        color: rgba(255, 255, 255, 0.8);
+        margin-bottom: 2.5rem;
+      }
+
+      .card-text .read-more {
+        color: var(--color-gold);
+        align-self: flex-start;
+        margin-top: auto;
+      }
+
+      .card-text .read-more::after {
+        background: var(--color-gold);
+      }
+
+      .card-text .read-more:hover {
+        color: #eab308;
+      }
+
+      @media (max-width: 768px) {
+        .container {
+          padding: 1rem;
+        }
+
+        .card {
+          width: 100%;
+          max-width: 400px;
+        }
+
+        .card-text h1 {
+          font-size: 36px;
+        }
+      }
+    </style>
+
+    <script>
+      window.console = window.console || function (t) {};
+    </script>
+  </head>
+
+  <body translate="no">
+    <div class="container">
+      <div class="card card-photo">
+        <img
+          src="https://images.unsplash.com/photo-1439405326854-014607f694d7?crop=entropy&cs=srgb&fm=jpg&ixid=M3wzMjM4NDZ8MHwxfHJhbmRvbXx8fHx8fHx8fDE3NDQwMzk1OTJ8&ixlib=rb-4.0.3&q=85"
+          alt="Ocean waves"
+        />
+        <div class="card-content">
+          <div class="card-category">♥♥♥♥♥</div>
+          <h2>Unwavering Love</h2>
+          <div class="card-meta">
+            <span>New Beginning</span>
+            <span>•</span>
+            <span>Endless Path</span>
+          </div>
+          <p>
+            Have you noticed that our relationship has been through a lot
+            already? Waves of life often give us a hard time moving forward, but
+            still, we managed to keep sailing no matter how big a wave hits us.
+            Our path is uncertain; there's no trajectory to follow. That's why
+            it gets more exciting, knowing that we have a lot to explore.
+          </p>
+          <p>Thank you for existing. I always appreciate you.</p>
+          <a href="#" class="read-more">50th</a>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
