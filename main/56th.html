@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>56th</title>
+    <link rel="icon" href="https://www.svgrepo.com/show/513311/heart.svg" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&display=swap");
+
+      :root {
+        --ink: #1a1814;
+        --dust: #c8bfad;
+        --clay: #9c7c5e;
+        --moss: #4a5e45;
+        --slate: #6b7f8e;
+        --storm: #2e3d4f;
+        --ochre: #c4893a;
+        --petal: #d4a5a0;
+        --stone: #e8e2d9;
+        --rain: #8fafc2;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--ink);
+        color: var(--ink);
+        font-family: "DM Mono", monospace;
+        min-height: 100vh;
+        overflow-x: hidden;
+
+        display: grid;
+        place-items: center;
+      }
+
+      /* ---- GRAIN OVERLAY ---- */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+        opacity: 0.04;
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      /* ---- DEMO SECTION ---- */
+      .demo-section {
+        padding: 0 2rem 4rem;
+        animation: fadeUp 0.8s 0.45s ease both;
+        max-width: 900px;
+        width: 100%;
+      }
+
+      .demo-card {
+        background: var(--dust);
+        color: var(--stone);
+        padding: 3rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .demo-card::before {
+        content: "";
+        position: absolute;
+        top: -60px;
+        right: -60px;
+        width: 220px;
+        height: 220px;
+        background: var(--rain);
+        border-radius: 50%;
+        opacity: 0.08;
+      }
+
+      .demo-card::after {
+        content: "";
+        position: absolute;
+        bottom: -80px;
+        left: 40%;
+        width: 300px;
+        height: 300px;
+        background: var(--ochre);
+        border-radius: 50%;
+        opacity: 0.06;
+      }
+
+      .demo-left h2 {
+        font-family: "Playfair Display", serif;
+        font-size: 2.5rem;
+        font-weight: 700;
+        line-height: 1.1;
+        margin-bottom: 1rem;
+        color: var(--ink);
+      }
+
+      .demo-left h2 span {
+        color: var(--moss);
+        font-style: italic;
+      }
+
+      .demo-left p {
+        font-size: 0.75rem;
+        line-height: 1.8;
+        color: var(--ink);
+        font-weight: 300;
+        margin-bottom: 1.5rem;
+      }
+
+      /* ---- KEYFRAMES ---- */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ---- RESPONSIVE ---- */
+      @media (max-width: 640px) {
+        .demo-card {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .swatches {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+    </style>
+
+    <script>
+      window.console = window.console || function (t) {};
+    </script>
+  </head>
+
+  <body translate="no">
+    <!-- DEMO USAGE -->
+    <section class="demo-section">
+      <div class="demo-card">
+        <div class="demo-left">
+          <h2>We've finally reached our <span>56th</span> chapter together.</h2>
+          <p>
+            For every step we take, we'll cherish it together. May our love
+            continue to grow and inspire each other.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <script id="rendered-js">
+      // ---- COPY HEX TO CLIPBOARD ----
+      function copyHex(el, hex) {
+        navigator.clipboard.writeText(hex).catch(() => {});
+        el.classList.add("copied");
+        setTimeout(() => el.classList.remove("copied"), 1200);
+      }
+
+      // ---- STAGGERED SWATCH ENTRANCE ----
+      document.querySelectorAll(".swatch").forEach((swatch, i) => {
+        swatch.style.opacity = "0";
+        swatch.style.transform = "translateY(20px)";
+        swatch.style.transition =
+          "opacity 0.5s ease, transform 0.5s ease, box-shadow 0.4s ease";
+
+        setTimeout(
+          () => {
+            swatch.style.opacity = "1";
+            swatch.style.transform = "translateY(0)";
+          },
+          400 + i * 60,
+        );
+      });
+      //# sourceURL=pen.js
+    </script>
+  </body>
+</html>

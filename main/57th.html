@@ -1,0 +1,228 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>57th</title>
+    <link rel="icon" href="https://www.svgrepo.com/show/513311/heart.svg" />
+
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Mono:wght@300;400;500&display=swap");
+
+      :root {
+        --ink: #1a1814;
+        --dust: #c8bfad;
+        --clay: #9c7c5e;
+        --moss: #4a5e45;
+        --slate: #6b7f8e;
+        --storm: #2e3d4f;
+        --ochre: #c4893a;
+        --petal: #d4a5a0;
+        --stone: #e8e2d9;
+        --rain: #8fafc2;
+        --grayish: #d6cec2;
+      }
+
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      html {
+        scroll-behavior: smooth;
+      }
+
+      body {
+        background-color: var(--ink);
+        color: var(--ink);
+        font-family: "DM Mono", monospace;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+
+      /* ---- GRAIN OVERLAY ---- */
+      body::before {
+        content: "";
+        position: fixed;
+        inset: 0;
+        background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+        opacity: 0.04;
+        pointer-events: none;
+        z-index: 9999;
+      }
+
+      /* ---- GRADIENT BAR ---- */
+      .gradient-bar {
+        height: 8px;
+        background: linear-gradient(
+          to right,
+          var(--ink),
+          var(--storm),
+          var(--slate),
+          var(--rain),
+          var(--moss),
+          var(--clay),
+          var(--ochre),
+          var(--petal),
+          var(--dust),
+          var(--stone)
+        );
+        animation: fadeUp 0.8s 0.6s ease both;
+      }
+
+      /* ---- HEADER ---- */
+      header {
+        padding: 4rem 2rem 2.5rem;
+        display: grid;
+        grid-template-columns: 1fr auto;
+        align-items: end;
+        gap: 1rem;
+        border-bottom: 1px solid var(--dust);
+        animation: fadeUp 0.8s ease both;
+      }
+
+      .header-label {
+        font-size: 0.65rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: var(--clay);
+        margin-bottom: 0.4rem;
+        opacity: 0.8;
+      }
+
+      h1 {
+        font-family: "Playfair Display", Georgia, serif;
+        font-size: clamp(3.5rem, 8vw, 6rem);
+        font-weight: 900;
+        line-height: 0.95;
+        letter-spacing: -0.02em;
+        color: var(--ink);
+        text-shadow: 0 1px 0 rgba(255, 255, 255, 0.15);
+      }
+
+      h1 em {
+        font-style: italic;
+        color: var(--clay);
+      }
+
+      .header-meta {
+        text-align: right;
+        font-size: 0.7rem;
+        color: var(--clay);
+        letter-spacing: 0.08em;
+        line-height: 1.8;
+      }
+
+      /* ---- INTRO ---- */
+      .intro {
+        padding: 2.5rem 2rem 0;
+        max-width: 520px;
+        animation: fadeUp 0.8s 0.15s ease both;
+      }
+
+      .intro p {
+        font-size: 0.8rem;
+        line-height: 1.8;
+        color: var(--grayish);
+        font-weight: 300;
+      }
+
+      /* ---- KEYFRAMES ---- */
+      @keyframes fadeUp {
+        from {
+          opacity: 0;
+          transform: translateY(24px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* ---- RESPONSIVE ---- */
+      @media (max-width: 640px) {
+        .demo-card {
+          grid-template-columns: 1fr;
+          gap: 2rem;
+        }
+        .swatches {
+          grid-template-columns: repeat(2, 1fr);
+        }
+      }
+
+      @media (max-width: 640px) {
+        header {
+          grid-template-columns: 1fr;
+          text-align: left;
+        }
+
+        .header-meta {
+          text-align: left;
+          margin-top: 1rem;
+        }
+      }
+    </style>
+
+    <script>
+      window.console = window.console || function (t) {};
+    </script>
+  </head>
+
+  <body translate="no">
+    <!-- GRADIENT BAR -->
+    <div class="gradient-bar"></div>
+
+    <!-- HEADER -->
+    <header>
+      <div>
+        <p class="header-label">Love · Friendship</p>
+        <h1><em>57th</em></h1>
+      </div>
+      <div class="header-meta">
+        We have<br />
+        come so<br />
+        far.
+      </div>
+    </header>
+
+    <!-- INTRO -->
+    <div class="intro">
+      <p>
+        I'm glad we're still here after all the hardships and challenges we've
+        faced together. We were so tough to have passed our recent struggles and
+        emerged stronger than ever. All I can say is that we should keep an open
+        mind in making future adjustments. That'll keep us going along the way.
+      </p>
+    </div>
+
+    <script id="rendered-js">
+      // ---- COPY HEX TO CLIPBOARD ----
+      function copyHex(el, hex) {
+        navigator.clipboard.writeText(hex).catch(() => {});
+        el.classList.add("copied");
+        setTimeout(() => el.classList.remove("copied"), 1200);
+      }
+
+      // ---- STAGGERED SWATCH ENTRANCE ----
+      document.querySelectorAll(".swatch").forEach((swatch, i) => {
+        swatch.style.opacity = "0";
+        swatch.style.transform = "translateY(20px)";
+        swatch.style.transition =
+          "opacity 0.5s ease, transform 0.5s ease, box-shadow 0.4s ease";
+
+        setTimeout(
+          () => {
+            swatch.style.opacity = "1";
+            swatch.style.transform = "translateY(0)";
+          },
+          400 + i * 60,
+        );
+      });
+      //# sourceURL=pen.js
+    </script>
+  </body>
+</html>
